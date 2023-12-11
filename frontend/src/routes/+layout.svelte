@@ -5,4 +5,6 @@
     export let data: LayoutData;
 </script>
 
-<slot />
+<div class="bg-bg w-screen h-screen px-32 py-10">
+    <slot />
+</div>
