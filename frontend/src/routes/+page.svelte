@@ -1,5 +1,5 @@
-<div class="flex flex-col justify-center gap-40">
-    <div class="flex">
+<div class="flex flex-col justify-between items-center h-full">
+    <div class="flex h-full items-center">
         <div class="flex flex-col w-3/5 gap-4 px-32">
             <h1 class="text-7xl text-primary font-bold">Helseveileder</h1>
             <p>Vi utfører en undersøkelse om kunstig intelligens (AI) i medisin. Vi ønsker å forstå hvordan AI kan fungere som en copilot for leger og pasienter.</p>
@@ -12,7 +12,7 @@
             </ul>
         </div>
         <div class="flex justify-center items-center w-2/5">
-            <button class="text-primary font-bold uppercase border-primary border-2 rounded-full px-8 py-3"><a href="/form">Start undersøkelse</a></button>
+            <button class="text-primary font-bold uppercase border-primary border-2 rounded-full px-8 py-3 hover:bg-primary hover:text-bg"><a href="/form">Start undersøkelse</a></button>
         </div>
     </div>
     <div class="flex justify-center items-center gap-8 text-primary font-bold">
