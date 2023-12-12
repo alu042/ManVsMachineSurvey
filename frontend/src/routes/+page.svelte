@@ -1,3 +1,7 @@
+<script>
+	import ButtonComponent from "../components/ButtonComponent.svelte";
+
+</script>
 <div class="flex flex-col justify-between items-center h-full">
     <div class="flex h-full items-center">
         <div class="flex flex-col w-3/5 gap-4 px-32">
@@ -12,7 +16,7 @@
             </ul>
         </div>
         <div class="flex justify-center items-center w-2/5">
-            <button class="text-primary font-bold uppercase border-primary border-2 rounded-full px-8 py-3 hover:bg-primary hover:text-bg"><a href="/form">Start undersøkelse</a></button>
+            <ButtonComponent text="Start undersøkelse" url="/userform" filled={false} />
         </div>
     </div>
     <div class="flex justify-center items-center gap-8 text-primary font-bold">

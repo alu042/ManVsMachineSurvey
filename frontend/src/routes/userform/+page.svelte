@@ -1,6 +1,7 @@
 <script>
     import UserFormInput from "../../components/userform/UserFormInput.svelte";
     import ArrowBack from "../../components/svg/ArrowBack.svelte";
+	import ButtonComponent from "../../components/ButtonComponent.svelte";
 </script>
 
 <div class="flex flex-col justify-center gap-20 h-full ">
@@ -22,7 +23,7 @@
         </div>
     </div>
     <div class="flex justify-center items-center gap-8 text-primary font-bold">
-        <button class="font-bold uppercase border-primary border-2 rounded-xl px-8 py-3 bg-primary text-bg text-xs"><a href="/form">Start undersøkelse</a></button>
+        <ButtonComponent text="Start undersøkelse" url="/form" filled={true} />
     </div>
 </div>
 
