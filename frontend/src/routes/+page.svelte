@@ -20,8 +20,8 @@
         </div>
     </div>
     <div class="flex justify-center items-center gap-8 text-primary font-bold">
-        <button>Personvern</button>
-        <button>Mer info</button>
+        <button><a href="/personvern">Personvern</a></button>
+        <button><a href="/info">Mer info</a></button>
     </div>
 </div>
 
