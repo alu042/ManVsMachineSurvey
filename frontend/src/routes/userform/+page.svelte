@@ -1,7 +1,7 @@
 <script>
     import UserFormInput from "../../components/userform/UserFormInput.svelte";
     import ArrowBack from "../../components/svg/ArrowBack.svelte";
-	import ButtonComponent from "../../components/ButtonComponent.svelte";
+	import ButtonComponent from "../../components/userform/inputs/ButtonComponent.svelte";
 </script>
 
 <div class="flex flex-col justify-center gap-20 h-full ">

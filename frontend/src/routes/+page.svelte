@@ -1,6 +1,5 @@
 <script>
-	import ButtonComponent from "../components/ButtonComponent.svelte";
-
+	import ButtonComponent from "../components/userform/inputs/ButtonComponent.svelte";
 </script>
 <div class="flex flex-col justify-between items-center h-full">
     <div class="flex h-full items-center">
