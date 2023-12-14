@@ -1,8 +1,4 @@
 <script>
-    import UserFormInput from "../../components/userform/UserFormInput.svelte";
-	import ButtonComponent from "../../components/userform/inputs/ButtonComponent.svelte";
-    import ArrowChevron from "../../components/svg/ArrowChevron.svelte";
-	import CircleExclamation from "../../components/svg/CircleExclamation.svelte";
     import FormHeader from "../../components/form/header/FormHeader.svelte";
     import AnswerBox from "../../components/form/answerbox/AnswerBox.svelte";
 	import Footer from "../../components/form/footer/Footer.svelte";
