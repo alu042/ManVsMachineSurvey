@@ -12,4 +12,4 @@
     }
 </script>
 
-<button class={style}><a href={url}>{text}</a></button>
+<a href={url}><button class={style}>{text}</button></a>
