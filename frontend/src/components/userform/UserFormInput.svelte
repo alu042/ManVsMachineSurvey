@@ -7,7 +7,7 @@
 </script>
 
 <div class="flex justify-start items-center h-1/4 w-full ">
-    <p class="text-primary font-bold">{label}:</p>
+    <p class="text-primary font-bold w-1/5">{label}:</p>
     {#if inputType == "radio"}
         <RadioButtons options={options}/>
     {/if}
