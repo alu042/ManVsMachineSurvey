@@ -1,14 +1,22 @@
 <script>
     import UserFormInput from "../../components/userform/UserFormInput.svelte";
 	import ButtonComponent from "../../components/ButtonComponent.svelte";
-    import ArrowChevronLeft from "../../components/svg/ArrowChevronLeft.svelte";
+    import ArrowChevron from "../../components/svg/ArrowChevron.svelte";
+	import CircleExclamation from "../../components/svg/CircleExclamation.svelte";
 </script>
 
 <div class="flex flex-col justify-center gap-4 h-full">
-    <div class="flex justify-center items-center mx-auto w-1/2 gap-4">
-        <h1 class="text-xl text-primary font-bold text-center">Spørsmål 3</h1>
-        <div class="border-r-2 border-primary h-24"></div>
-        <p>Hvis man begynner skabbehandling før man har fått symptomer, men får symptomer iløpet av den uka før man skal smøre seg igjen etter 7 dager, har da ikke første smøringen virket?</p>
+    <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center w-1/2 gap-4">
+            <h1 class="text-xl text-primary font-bold text-center">Spørsmål 3</h1>
+            <div class="border-r-2 border-primary h-24"></div>
+            <p>Hvis man begynner skabbehandling før man har fått symptomer, men får symptomer iløpet av den uka før man skal smøre seg igjen etter 7 dager, har da ikke første smøringen virket?</p>
+        </div>
+        <div class="flex justify-center items-center">
+            <a class="-" href="/errorreport">
+                <CircleExclamation width="24" height="24" />    
+            </a>
+        </div>
     </div>
     <div class="flex justify-center gap-12">
         <div class="flex flex-col gap-2">
@@ -42,13 +50,20 @@
             <UserFormInput inputType="radio" label="Hjelpsomhet" options={["Veldig dårlig", "Dårlig", "Nøytral", "Bra", "Veldig bra"]}/>
         </div>
     </div>
-    <div class="flex justify-center items-center gap-8 text-primary font-bold">
+    <div class="flex justify-center items-center gap-8">
         <a href="">
-            <button><ArrowChevronLeft width=16 />
+            <button class="flex items-center gap-2 text-primary font-semibold">
+                <ArrowChevron width=16 direction="left"/>
                 Forrige spørsmål
             </button>
         </a>
         <ButtonComponent text="Send inn svar" url="/" filled={true} />
+        <a href="">
+            <button class="flex items-center gap-2 text-primary font-semibold opacity-50">
+                Neste spørsmål
+                <ArrowChevron width=16 direction="right"/>
+            </button>
+        </a>
     </div>
 </div>
 
