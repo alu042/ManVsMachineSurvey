@@ -1,7 +1,13 @@
-<script>
+<script lang="ts">
     import UserFormInput from "../../components/userform/UserFormInput.svelte";
     import ArrowBack from "../../components/svg/ArrowBack.svelte";
 	import ButtonComponent from "../../components/userform/inputs/ButtonComponent.svelte";
+	import { postFormData } from "../../api/postFormData";
+
+    let age: string = "18-20"
+    let education: string = "PhD"
+    let healthcare_personnel: string = "Ja"
+    let gender: string = "Mann"
 </script>
 
 <div class="flex flex-col justify-center gap-20 h-full ">
@@ -16,14 +22,14 @@
             <p>Vi vil igjen nevne at denne undersøkelsen er helt anonym og informasjonen vil kun bli brukt til å forbedre vår tjeneste.</p>  
         </div>
         <div class="flex flex-col justify-start items-center w-2/4">
-            <UserFormInput inputType="radio" label="Alder" options={["18-20", "20-30", "30-40", "40-50", "50-60"]}/>
-            <UserFormInput inputType="select" label="Utdanningsgrad" options={["PhD", "Master", "Fagbrev", "Bachelor"]}/>
-            <UserFormInput inputType="radio" label="Helsepersonell" options={["Ja", "Nei"]}/>
-            <UserFormInput inputType="radio" label="Kjønn" options={["Mann", "Kvinne", "Annet"]}/>
+            <UserFormInput formData={age} on:update={(e) => age = e.detail} inputType="radio" label="Alder" options={["18-20", "20-30", "30-40", "40-50", "50-60"]}/>
+            <UserFormInput formData={education} on:update={(e) => education = e.detail} inputType="select" label="Utdanningsgrad" options={["PhD", "Master", "Fagbrev", "Bachelor"]}/>
+            <UserFormInput formData={healthcare_personnel} on:update={(e) => healthcare_personnel = e.detail} inputType="radio" label="Helsepersonell" options={["Ja", "Nei"]}/>
+            <UserFormInput formData={gender} on:update={(e) => gender = e.detail} inputType="radio" label="Kjønn" options={["Mann", "Kvinne", "Annet"]}/>
         </div>
     </div>
     <div class="flex justify-center items-center gap-8 text-primary font-bold">
-        <ButtonComponent text="Start undersøkelse" url="/form" filled={true} />
+        <ButtonComponent text="Start undersøkelse" url="/form" filled={true} onclick={() => postFormData(age, education, healthcare_personnel, gender)} />
     </div>
 </div>
 
