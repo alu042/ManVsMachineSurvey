@@ -15,8 +15,20 @@ export const postFormData = (
 			healthcare_personnel: personnel,
 			gender: gender,
 		}),
-	}).catch((error) => {
-		console.log(error);
-	});
+	})
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+			return response.json();
+		})
+		.then((data) => {
+			console.log(data);
+			localStorage.setItem("RespondentId", data);
+			return data;
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 	return response;
 };
