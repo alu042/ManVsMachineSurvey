@@ -8,7 +8,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func InsertData(age string, education string, healthcarepersonell bool, gender string) (int, error) {
+func InsertUserData(age string, education string, healthcarepersonell bool, gender string) (int, error) {
 	// Connection string
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
 		"password=%s dbname=%s sslmode=disable",
@@ -28,9 +28,9 @@ func InsertData(age string, education string, healthcarepersonell bool, gender s
 	}
 
 	insertStatement := `
-	INSERT INTO Respondent (alder, utdanningsgrad, helsepersonell, kjønn)
-	VALUES ($1, $2, $3, $4)
-	RETURNING respondentID
+		INSERT INTO Respondent (alder, utdanningsgrad, helsepersonell, kjønn)
+		VALUES ($1, $2, $3, $4)
+		RETURNING respondentID
 	`
 	
 	stmt, err := db.Prepare(insertStatement)
@@ -42,9 +42,10 @@ func InsertData(age string, education string, healthcarepersonell bool, gender s
 	var respondentID int
 	err = stmt.QueryRow(age, education, healthcarepersonell, gender).Scan(&respondentID)
 	if err != nil {
-		log.Fatalf("Error executing statement: %v\n", err)
+		log.Fatalf("Error inserting userdata: %v\n", err)
 	}
 
 	fmt.Printf("Data inserted successfully with respondentID: %d\n", respondentID)
+
 	return respondentID, nil
 }

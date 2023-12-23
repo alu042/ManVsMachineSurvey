@@ -13,7 +13,7 @@ import (
 type FormData struct {
     Age                string `json:"age"`
     Education          string `json:"education"`
-    HealthcarePersonnel bool   `json:"healthcare_personnel"`
+    HealthcarePersonnel bool  `json:"healthcare_personnel"`
     Gender             string `json:"gender"`
 }
 
@@ -31,13 +31,15 @@ func main() {
         }
 
         // Capture both the ID and error returned from InsertData
-		respondentId, err := db.InsertData(requestBody.Age, requestBody.Education, requestBody.HealthcarePersonnel, requestBody.Gender)
+		respondentId, err := db.InsertUserData(requestBody.Age, requestBody.Education, requestBody.HealthcarePersonnel, requestBody.Gender)
 		
         if err != nil {
 			fmt.Print(err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to insert data"})
 			return
 		}
+
+
 
         // Respond with the ID of the newly inserted respondent
 		c.JSON(http.StatusOK, gin.H{"respondentID": respondentId})
