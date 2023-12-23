@@ -16,10 +16,9 @@
     </a>
     <div class="flex h-4/5 ">
         <div class="flex flex-col justify-center w-2/4 gap-4 px-32 ">
-            <h1 class="text-3xl text-primary font-bold">Medisinsk AI Samtale Undersøkelse</h1>
-            <p>For å kunne få strukturert undersøkelsen så må det samles inn litt informasjon.
-            <p>Her trengs det alder, utdanningsgrad, om du er helsepersonell og kjønn.</p>
-            <p>Vi vil igjen nevne at denne undersøkelsen er helt anonym og informasjonen vil kun bli brukt til å forbedre vår tjeneste.</p>  
+            <h1 class="text-3xl text-primary font-bold">Informasjon om deltaker</h1>
+            <p>Til undersøkelsen trenger vi opplysninger om din aldersgruppe, utdanningsgrad, kjønn og bekreftelse på at du er helsepersonell.</p>
+            <p>Vi vil igjen minne om at denne undersøkelsen er helt anonym. Se <a href="/personvern"class="text-primary font-bold">Personvern</a> for mer informasjon.</p>  
         </div>
         <div class="flex flex-col justify-start items-center w-2/4">
             <UserFormInput formData={age} on:update={(e) => age = e.detail} inputType="radio" label="Alder" options={["18-20", "20-30", "30-40", "40-50", "50-60"]}/>

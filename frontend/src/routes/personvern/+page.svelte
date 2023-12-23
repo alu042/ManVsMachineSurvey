@@ -1,7 +1,3 @@
-<script>
-	import ButtonComponent from "../../components/ButtonComponent.svelte";
-
-</script>
 <div class="flex flex-col justify-between items-center h-full">
     <div class="flex h-full mt-8">
         <div class="flex flex-col gap-4 px-64 items-center">
