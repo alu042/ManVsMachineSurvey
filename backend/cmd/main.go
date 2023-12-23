@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 
 	"helseveileder/db"
 
@@ -18,13 +17,6 @@ type FormData struct {
 
 func main() {
     router := gin.Default()
-
-    // Define a basic GET request handler
-    router.GET("/ping", func(c *gin.Context) {
-        c.JSON(http.StatusOK, gin.H{
-            "message": "pong",
-        })
-    })
 
     // Info about user
     router.POST("/submitform", func(c *gin.Context) {
@@ -42,5 +34,5 @@ func main() {
 
     // Run the server on port 8080
     router.Run(":8080")
-    // db.SetupDb()
+    //db.SetupDb()
 }
