@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"helseveileder/db"
 
@@ -44,7 +45,25 @@ func main() {
     })
 
     // Get questions & answers from database
-    //router.GET("/")
+    router.GET("/userquestions", func(c *gin.Context) {
+        respondentID, err := strconv.Atoi(c.Query("respondentID"))
+
+        if err != nil {
+            fmt.Print(err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Wrong respondentID-format (should be int)."})
+			return
+        }
+
+        questions, err := db.GetUserQuestions(respondentID)
+
+        if err != nil {
+            fmt.Print(err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Error getting questions for given user."})
+			return
+        }
+
+        c.JSON(http.StatusOK, gin.H{"questions": questions})
+    })
 
     // Run the server on port 8080
     router.Run(":8080")
