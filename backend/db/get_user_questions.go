@@ -52,10 +52,16 @@ func GetUserQuestions(respondendID int) ([5]UserQuestions, error) {
 		"LIMIT 5", 
 		respondendID)
 
-		stmt, err := db.Prepare(getQuestionsStatement)
-		if err != nil {
-			log.Fatalf("Error preparing statement: %v\n", err)
-		}
-		defer stmt.Close()
+	stmt, err := db.Prepare(getQuestionsStatement)
+	if err != nil {
+		log.Fatalf("Error preparing statement: %v\n", err)
+	}
+	defer stmt.Close()
+
+	var questions [5]FormQuestion
+
+	rows, err := stmt.Query(getQuestionsStatement)
+
+	
 
 }

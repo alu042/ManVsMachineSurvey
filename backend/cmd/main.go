@@ -39,8 +39,6 @@ func main() {
 			return
 		}
 
-
-
         // Respond with the ID of the newly inserted respondent
 		c.JSON(http.StatusOK, gin.H{"respondentID": respondentId})
     })
