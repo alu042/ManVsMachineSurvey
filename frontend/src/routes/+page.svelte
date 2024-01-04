@@ -15,7 +15,9 @@
             </ul>
         </div>
         <div class="flex justify-center items-center w-2/5">
-            <ButtonComponent text="Start undersøkelse" url="/userform" filled={false} />
+            <a href="/userform">
+                <ButtonComponent text="Start undersøkelse" filled={false} />
+            </a>
         </div>
     </div>
     <div class="flex justify-center items-center gap-8 text-primary font-bold">

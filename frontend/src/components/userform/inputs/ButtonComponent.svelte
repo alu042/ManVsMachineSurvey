@@ -1,6 +1,5 @@
 <script lang="ts">
     export let text: string;
-    export let url: string;
     export let filled = false;
     export let onclick: () => {};
 
@@ -11,4 +10,4 @@
     font-bold uppercase border-primary border-2 rounded-full px-8 py-3`
 </script>
 
-<a href={url}><button class={style} on:click={onclick}>{text}</button></a>
+<button class={style} on:click={onclick}>{text}</button>
