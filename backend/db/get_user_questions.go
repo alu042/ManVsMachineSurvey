@@ -71,7 +71,9 @@ func GetUserQuestions(respondentID int) ([]UserQuestions, error) {
 			return questionAnswers, err
 		}
 
-		getAnswersStatement := `WITH TrueAnswer AS (
+		getAnswersStatement := 
+		`
+		WITH TrueAnswer AS (
 			SELECT ss.svarID
 			FROM SpørsmålSvar ss
 			WHERE ss.spørsmålID = $1

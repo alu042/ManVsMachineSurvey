@@ -1,9 +1,13 @@
-export const postFormData = (
+interface postUserformDataReponse {
+	respondentID: number;
+}
+
+export const postUserformData = (
 	age: string,
 	education: string,
 	healthcare_personnel: string,
 	gender: string
-) => {
+): postUserformDataReponse => {
 	let url = "http://localhost:8080/submitform";
 	let personnel = healthcare_personnel == "Ja" ? true : false;
 

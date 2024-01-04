@@ -2,12 +2,18 @@
     import UserFormInput from "../../components/userform/UserFormInput.svelte";
     import ArrowBack from "../../components/svg/ArrowBack.svelte";
 	import ButtonComponent from "../../components/userform/inputs/ButtonComponent.svelte";
-	import { postFormData } from "../../api/postFormData";
+	import { postUserformData } from "../../api/postUserformData";
 
     let age: string = "18-20"
     let education: string = "PhD"
     let healthcare_personnel: string = "Ja"
     let gender: string = "Mann"
+
+    const handleUserformSubmit = async (age: string, education: string, healthcare_personnel: string, gender: string) => {
+        const response = await postUserformData(age, education, healthcare_personnel, gender)
+        
+        await getUserQuestions(response.respondentID)
+    }
 </script>
 
 <div class="flex flex-col justify-center gap-20 h-full ">
@@ -28,7 +34,7 @@
         </div>
     </div>
     <div class="flex justify-center items-center gap-8 text-primary font-bold">
-        <ButtonComponent text="Start undersøkelse" url="/form" filled={true} onclick={() => postFormData(age, education, healthcare_personnel, gender)} />
+        <ButtonComponent text="Start undersøkelse" url="/form" filled={true} onclick={() => handleUserformSubmit(age, education, healthcare_personnel, gender)} />
     </div>
 </div>
 
