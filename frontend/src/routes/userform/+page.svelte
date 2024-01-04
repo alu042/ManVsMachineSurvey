@@ -17,7 +17,7 @@
     const handleUserformSubmit = async (age: string, education: string, healthcare_personnel: string, gender: string) => {
         const response = await postUserformData(age, education, healthcare_personnel, gender)
         const userQuestions = await getUserQuestions(response.respondentID)
-        
+            
         goto("form/0")
     }
 </script>
