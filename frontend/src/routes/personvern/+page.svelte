@@ -1,8 +1,16 @@
 <div class="flex flex-col justify-between items-center h-full">
     <div class="flex h-full mt-8">
-        <div class="flex flex-col gap-4 px-64 items-center">
+        <div class="flex flex-col gap-4 px-96 items-center">
             <h1 class="text-3xl text-primary font-bold">Personvern</h1>
-            <p>Undersøkelsen er helt anonym og informasjonen vil bli brukt til å forbedre vår tjeneste.</p>
+            <p>
+                Vi verdsetter din deltakelse i denne studien. Som en del av vår forpliktelse til å sikre personvern, ønsker vi å informere deg om hvordan vi håndterer dine data.
+            </p>
+            <p>
+                All informasjon du gir vil bli lagret anonymt. Dette betyr at svarene du gir ikke vil kunne spores tilbake til deg.
+            </p>
+            <p>
+                Vi registrerer alder i kohorter (10-20, 21-30, 31-40 osv.), utdanningsnivå, om du er helsepersonell (ja/nei), og kjønn. Dette er for å få en overordnet forståelse av deltakerne i studien. Vi spør ikke om personidentifiserbare opplysninger som navn, fødselsdato, personnummer, e-postadresse, telefonnummer eller geografiske data.
+            </p>
         </div>
     </div>
     <div class="flex justify-center items-center gap-8 text-primary font-bold">
