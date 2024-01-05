@@ -1,20 +1,30 @@
-<script>
+<script lang="ts">
 	import ArrowChevron from "../../svg/ArrowChevron.svelte";
     import ButtonComponent from "../../userform/inputs/ButtonComponent.svelte";
+    import { goto } from "$app/navigation";
+
+    export let questionNum:number
+
+    const gotoNextPage = async (questionNum: number) => {        
+        goto(`${questionNum + 1}`)
+    }
+
+    const gotoPrevPage = async (questionNum: number) => {
+        goto(`${questionNum - 1}`)
+    }
 </script>
 
 <div class="flex justify-center items-center gap-8">
-    <a href="/">
-        <button class="flex items-center gap-2 text-primary font-semibold">
-            <ArrowChevron width=16 direction="left"/>
-            Forrige spørsmål
-        </button>
-    </a>
-    <ButtonComponent text="Send inn svar" url="/" filled={true} />
-    <a href="/">
-        <button class="flex items-center gap-2 text-primary font-semibold opacity-50">
-            Neste spørsmål
-            <ArrowChevron width=16 direction="right"/>
-        </button>
-    </a>
+    <button disabled={questionNum == 0} class={`flex items-center gap-2 text-primary font-semibold ${questionNum == 0 && "opacity-50"}`} on:click={() => gotoPrevPage(questionNum)}>
+        <ArrowChevron width=16 direction="left"/>
+        Forrige spørsmål
+    </button>
+    <button disabled={questionNum == 0 || questionNum % 4 != 0} 
+    class={`${questionNum == 0 || questionNum % 4 != 0 ?  "text-primary opacity-50" : "bg-primary text-bg hover:bg-bg hover:text-primary"} font-bold uppercase border-primary border-2 rounded-full px-8 py-3`}>
+            Send inn svar
+    </button>
+    <button disabled={questionNum != 0 && questionNum % 4 == 0} class={`flex items-center gap-2 text-primary font-semibold ${questionNum != 0 && questionNum % 4 == 0 && "opacity-50"}`} on:click={() => gotoNextPage(questionNum)}>
+        Neste spørsmål
+        <ArrowChevron width=16 direction="right"/>
+    </button>
 </div>

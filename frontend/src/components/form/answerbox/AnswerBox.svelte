@@ -2,12 +2,13 @@
     import UserFormInput from "../../userform/UserFormInput.svelte";
     
     export let answerText:string
+    export let answerNum:number
 
 </script>
 
 <div class="flex flex-col">
     <div class="flex flex-col gap-2 mb-6">
-        <h1 class="text-xl text-primary font-bold text-center">Svar 2:</h1>
+        <h1 class="text-xl text-primary font-bold text-center">Svar {answerNum}:</h1>
         <div class="bg-secondary p-6 rounded-xl text-sm">
             {answerText}
         </div>

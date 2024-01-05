@@ -15,6 +15,7 @@
     let firstUserQuestion: number = 0
 
     const handleUserformSubmit = async (age: string, education: string, healthcare_personnel: string, gender: string) => {
+        localStorage.clear()
         const response = await postUserformData(age, education, healthcare_personnel, gender)
         const userQuestions = await getUserQuestions(response.respondentID)
             
