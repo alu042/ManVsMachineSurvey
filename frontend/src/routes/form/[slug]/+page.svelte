@@ -8,8 +8,10 @@
     export let data;
 
     let formQuestion: string = ""
-    let questionAnswer1: string = ""
-    let questionAnswer2: string = ""
+    let questionAnswer1Text: string = ""
+    let questionAnswer1ID: number = 0
+    let questionAnswer2Text: string = ""
+    let questionAnswer2ID: number = 0
     let questionNumber: number = 0
 
     // Reactive statement to react on 'data.slug' changes
@@ -24,8 +26,10 @@
         if (localstoragequestions) {
             let questions = JSON.parse(localstoragequestions).questions;
             formQuestion = questions[questionNumber].Question.QuestionText;
-            questionAnswer1 = questions[questionNumber].Answers[0].AnswerText;
-            questionAnswer2 = questions[questionNumber].Answers[1].AnswerText;
+            questionAnswer1Text = questions[questionNumber].Answers[0].AnswerText;
+            questionAnswer1ID = questions[questionNumber].Answers[0].AnswerID;
+            questionAnswer2Text = questions[questionNumber].Answers[1].AnswerText;
+            questionAnswer2ID = questions[questionNumber].Answers[1].AnswerID;
         }
     }
 
@@ -39,8 +43,8 @@
     <FormHeader questionNum={questionNumber} formQuestion={formQuestion}/>
     <div class="flex h-full justify-between gap-12">
         {#key questionNumber}     
-            <AnswerBox answerNum={1} answerText={questionAnswer1}/>
-            <AnswerBox answerNum={2} answerText={questionAnswer2}/>
+            <AnswerBox answerNum={1} answerText={questionAnswer1Text} answerID={questionAnswer1ID}/>
+            <AnswerBox answerNum={2} answerText={questionAnswer2Text} answerID={questionAnswer2ID}/>
         {/key}
     </div>
     <Footer questionNum={Number(questionNumber)}/>
