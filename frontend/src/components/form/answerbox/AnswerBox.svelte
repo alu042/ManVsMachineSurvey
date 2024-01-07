@@ -2,12 +2,13 @@
     import UserFormInput from "../../userform/UserFormInput.svelte";
     import { convertAnswerDataToNumeric, convertAnswerDataToString } from "$lib/convertAnswerData";
 	import { onMount } from "svelte";
+    import { createEventDispatcher } from 'svelte';
+    
+    const dispatch = createEventDispatcher();
 
     export let answerText:string
     export let answerNum:number
     export let answerID:number
-
-    let answeredAll:boolean
     
     let knowledge:string
     let empathy:string
@@ -15,7 +16,7 @@
 
     const handleFormUpdate = () => {
         if (knowledge != "" && empathy != "" && helpfulness != "") {
-            answeredAll = true
+            dispatch("update", true)
         }
 
         let knowledgeNumeric = convertAnswerDataToNumeric(knowledge)
@@ -56,7 +57,6 @@
             empathy=""
             helpfulness=""
         }
-
     })
 
 </script>

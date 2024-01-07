@@ -14,6 +14,9 @@
     let questionAnswer2ID: number = 0
     let questionNumber: number = 0
 
+    let question1Answered: boolean = false
+    let question2Answered: boolean = false
+    
     // Reactive statement to react on 'data.slug' changes
     $: if (data && data.slug !== undefined && browser) {
         questionNumber = data.slug;
@@ -43,9 +46,11 @@
     <FormHeader questionNum={questionNumber} formQuestion={formQuestion}/>
     <div class="flex h-full justify-between gap-12">
         {#key questionNumber}     
-            <AnswerBox answerNum={1} answerText={questionAnswer1Text} answerID={questionAnswer1ID}/>
-            <AnswerBox answerNum={2} answerText={questionAnswer2Text} answerID={questionAnswer2ID}/>
+            <AnswerBox on:update={(e) => question1Answered = e.detail} answerNum={1} answerText={questionAnswer1Text} answerID={questionAnswer1ID}/>
+            <AnswerBox on:update={(e) => question2Answered = e.detail} answerNum={2} answerText={questionAnswer2Text} answerID={questionAnswer2ID}/>
         {/key}
     </div>
-    <Footer questionNum={Number(questionNumber)}/>
+    {#key questionNumber}
+        <Footer answeredAll={question1Answered && question2Answered} questionNum={Number(questionNumber)}/>
+    {/key}
 </div>
