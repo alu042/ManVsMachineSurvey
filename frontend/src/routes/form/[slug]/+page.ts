@@ -1,6 +1,6 @@
 import { error } from "@sveltejs/kit";
 
-/** @type {import('./$types').PageServerLoad} */
+/** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
 	let questionNumber = params;
 

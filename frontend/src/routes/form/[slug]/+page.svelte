@@ -3,6 +3,7 @@
     import AnswerBox from "../../../components/form/answerbox/AnswerBox.svelte";
 	import Footer from "../../../components/form/footer/Footer.svelte";
     import { onMount } from "svelte"
+    import { browser } from "$app/environment";
 
     export let data;
 
@@ -12,7 +13,7 @@
     let questionNumber: number = 0
 
     // Reactive statement to react on 'data.slug' changes
-    $: if (data && data.slug !== undefined) {
+    $: if (data && data.slug !== undefined && browser) {
         questionNumber = data.slug;
         updateQuestionData();
     }
