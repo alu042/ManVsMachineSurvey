@@ -34,6 +34,27 @@
             questionAnswer2Text = questions[questionNumber].Answers[1].AnswerText;
             questionAnswer2ID = questions[questionNumber].Answers[1].AnswerID;
         }
+
+        let allFormAnswers:string | null = localStorage.getItem("allFormAnswers")
+
+        if (allFormAnswers) {
+            let existingFormAnswers = JSON.parse(allFormAnswers);
+            let retrievedFormAnswers:Map<number, number[]> = new Map(existingFormAnswers)
+            let formAnswer1 = retrievedFormAnswers.get(questionAnswer1ID)
+            let formAnswer2 = retrievedFormAnswers.get(questionAnswer2ID)
+            if (formAnswer1 && formAnswer2) {
+                if (formAnswer1.includes(0) || formAnswer2.includes(0)) {
+                    question1Answered = false
+                    question2Answered = false
+                } else {
+                    question1Answered = true
+                    question2Answered = true
+                }
+            } else {
+                question1Answered = false
+                question2Answered = false
+            }
+        } 
     }
 
     // On mount, call the update function

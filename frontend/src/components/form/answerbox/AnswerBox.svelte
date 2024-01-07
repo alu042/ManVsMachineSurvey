@@ -15,7 +15,7 @@
     let helpfulness:string
 
     const handleFormUpdate = () => {
-        if (knowledge != "" && empathy != "" && helpfulness != "") {
+        if (knowledge && empathy && helpfulness) {
             dispatch("update", true)
         }
 

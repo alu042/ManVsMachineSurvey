@@ -18,7 +18,6 @@ export const convertAnswerDataToNumeric = (value: string): number => {
 			result = 5;
 			break;
 		default:
-			console.log("Wrong input");
 			result = 0;
 			break;
 	}
@@ -46,7 +45,6 @@ export const convertAnswerDataToString = (value: number): string => {
 			result = "Veldig bra";
 			break;
 		default:
-			console.log("Wrong input");
 			break;
 	}
 
