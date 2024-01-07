@@ -11,11 +11,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type FormData struct {
+type UserformData struct {
     Age                string `json:"age"`
     Education          string `json:"education"`
     HealthcarePersonnel bool  `json:"healthcare_personnel"`
     Gender             string `json:"gender"`
+}
+
+type FormData struct {
+    FormAnswers        string `json:"allFormAnswers"`
+    RespondentId       int `json:"respondentID"`
 }
 
 func main() {
@@ -25,7 +30,7 @@ func main() {
     // Info about user
     router.POST("/submituserform", func(c *gin.Context) {
 
-        var requestBody FormData
+        var requestBody UserformData
 
         if err := c.BindJSON(&requestBody); err != nil {
             fmt.Print(err)
@@ -71,6 +76,17 @@ func main() {
         if err := c.BindJSON(&requestBody); err != nil {
             fmt.Print(err)
         }
+
+        respondentID, err := db.InsertUserAnswers(requestBody.RespondentId, requestBody.FormAnswers)
+        
+        if err != nil {
+			fmt.Print(err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to insert data"})
+			return
+		}
+
+        // Respond with the ID of the newly inserted respondent
+		c.JSON(http.StatusOK, gin.H{"respondentID": respondentID})
     })
 
     // Run the server on port 8080

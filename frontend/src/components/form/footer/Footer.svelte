@@ -2,6 +2,7 @@
 	import ArrowChevron from "../../svg/ArrowChevron.svelte";
     import ButtonComponent from "../../userform/inputs/ButtonComponent.svelte";
     import { goto } from "$app/navigation";
+	import { postFormData } from "../../../api/postFormData";
 
     export let questionNum:number
     export let answeredAll:boolean
@@ -13,6 +14,16 @@
     const gotoPrevPage = async (questionNum: number) => {
         goto(`${questionNum - 1}`)
     }
+
+    const handleFormSubmit = () => {
+        let allFormAnswers:string | null = localStorage.getItem("allFormAnswers")
+        let respondentID:string | null = localStorage.getItem("RespondentId")
+
+        if (allFormAnswers && respondentID) {
+            postFormData(Number(respondentID), allFormAnswers)
+        }
+    }
+
 </script>
 
 <div class="flex justify-center items-center gap-8">
@@ -20,7 +31,7 @@
         <ArrowChevron width=16 direction="left"/>
         Forrige spørsmål
     </button>
-    <button disabled={questionNum == 0 || questionNum % 4 != 0} 
+    <button disabled={questionNum == 0 || questionNum % 4 != 0} on:click={handleFormSubmit}
     class={`${questionNum == 0 || questionNum % 4 != 0 ?  "hidden" : "bg-primary text-bg hover:bg-bg hover:text-primary"} font-bold uppercase border-primary border-2 rounded-full px-8 py-3`}>
             Send inn svar
     </button>
