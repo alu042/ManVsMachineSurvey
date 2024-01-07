@@ -20,7 +20,7 @@ type UserformData struct {
 
 type FormData struct {
     FormAnswers        string `json:"allFormAnswers"`
-    RespondentId       int `json:"respondentID"`
+    RespondentId       int    `json:"respondentID"`
 }
 
 func main() {
@@ -77,7 +77,7 @@ func main() {
             fmt.Print(err)
         }
 
-        respondentID, err := db.InsertUserAnswers(requestBody.RespondentId, requestBody.FormAnswers)
+        err := db.InsertUserAnswers(requestBody.RespondentId, requestBody.FormAnswers)
         
         if err != nil {
 			fmt.Print(err)
@@ -86,7 +86,7 @@ func main() {
 		}
 
         // Respond with the ID of the newly inserted respondent
-		c.JSON(http.StatusOK, gin.H{"respondentID": respondentID})
+		c.JSON(http.StatusOK, "Successfully inserted formdata!")
     })
 
     // Run the server on port 8080
