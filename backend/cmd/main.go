@@ -23,7 +23,7 @@ func main() {
     router.Use(cors.Default())
     
     // Info about user
-    router.POST("/submitform", func(c *gin.Context) {
+    router.POST("/submituserform", func(c *gin.Context) {
 
         var requestBody FormData
 
@@ -63,6 +63,14 @@ func main() {
         }
 
         c.JSON(http.StatusOK, gin.H{"questions": questions})
+    })
+
+    router.POST("/submitanswers", func(c *gin.Context) {
+        var requestBody FormData
+
+        if err := c.BindJSON(&requestBody); err != nil {
+            fmt.Print(err)
+        }
     })
 
     // Run the server on port 8080

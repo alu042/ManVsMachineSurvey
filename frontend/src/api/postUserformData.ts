@@ -8,7 +8,7 @@ export const postUserformData = (
 	healthcare_personnel: string,
 	gender: string
 ): Promise<postUserformDataReponse> => {
-	let url = "http://localhost:8080/submitform";
+	let url = "http://localhost:8080/submituserform";
 	let personnel = healthcare_personnel == "Ja" ? true : false;
 
 	const response = fetch(url, {
