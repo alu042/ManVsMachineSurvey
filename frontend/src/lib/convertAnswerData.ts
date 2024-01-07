@@ -1,4 +1,4 @@
-export const convertAnswerData = (value: string): number => {
+export const convertAnswerDataToNumeric = (value: string): number => {
 	let result = 0;
 
 	switch (value) {
@@ -14,12 +14,39 @@ export const convertAnswerData = (value: string): number => {
 		case "Bra":
 			result = 4;
 			break;
-		case "Veldig Bra":
+		case "Veldig bra":
 			result = 5;
 			break;
 		default:
 			console.log("Wrong input");
 			result = 0;
+			break;
+	}
+
+	return result;
+};
+
+export const convertAnswerDataToString = (value: number): string => {
+	let result = "";
+
+	switch (value) {
+		case 1:
+			result = "Veldig dårlig";
+			break;
+		case 2:
+			result = "Dårlig";
+			break;
+		case 3:
+			result = "Nøytral";
+			break;
+		case 4:
+			result = "Bra";
+			break;
+		case 5:
+			result = "Veldig bra";
+			break;
+		default:
+			console.log("Wrong input");
 			break;
 	}
 
