@@ -20,7 +20,7 @@
         Forrige spørsmål
     </button>
     <button disabled={questionNum == 0 || questionNum % 4 != 0} 
-    class={`${questionNum == 0 || questionNum % 4 != 0 ?  "text-primary opacity-50" : "bg-primary text-bg hover:bg-bg hover:text-primary"} font-bold uppercase border-primary border-2 rounded-full px-8 py-3`}>
+    class={`${questionNum == 0 || questionNum % 4 != 0 ?  "hidden" : "bg-primary text-bg hover:bg-bg hover:text-primary"} font-bold uppercase border-primary border-2 rounded-full px-8 py-3`}>
             Send inn svar
     </button>
     <button disabled={questionNum != 0 && questionNum % 4 == 0} class={`flex items-center gap-2 text-primary font-semibold ${questionNum != 0 && questionNum % 4 == 0 && "opacity-50"}`} on:click={() => gotoNextPage(questionNum)}>
