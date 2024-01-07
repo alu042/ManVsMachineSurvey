@@ -38,8 +38,10 @@
 <div class="flex flex-col h-full">
     <FormHeader questionNum={questionNumber} formQuestion={formQuestion}/>
     <div class="flex h-full justify-between gap-12">
-        <AnswerBox answerNum={1} answerText={questionAnswer1}/>
-        <AnswerBox answerNum={2} answerText={questionAnswer2}/>
+        {#key questionNumber}     
+            <AnswerBox answerNum={1} answerText={questionAnswer1}/>
+            <AnswerBox answerNum={2} answerText={questionAnswer2}/>
+        {/key}
     </div>
     <Footer questionNum={Number(questionNumber)}/>
 </div>
