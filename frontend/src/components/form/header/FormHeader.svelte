@@ -13,7 +13,7 @@
         <p class="text-sm">{formQuestion}</p>
     </div>
     <div class="flex justify-end pr-20 items-center w-1/3">
-        <a class="-" href="/errorreport">
+        <a class="-" href="/reporterror">
             <CircleExclamation width="16" height="16" />    
         </a>
     </div>
