@@ -62,6 +62,12 @@ func SetupDb() {
 			empati INT,
 			hjelpsomhet INT
 		);`,
+		`CREATE TABLE IF NOT EXISTS Evaluering (
+			evalueringtekst TEXT
+		);`,
+		`CREATE TABLE IF NOT EXISTS FeilRapport (
+			feiltekst TEXT
+		);`,
 	}
 
 	// Execute SQL statements

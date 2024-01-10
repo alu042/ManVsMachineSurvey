@@ -28,7 +28,7 @@ func InsertEvaluation(evaluationText string) (error) {
 	}
 
 	insertStatement := `
-	INSERT INTO Evaluering (evalueringTekst)
+	INSERT INTO Evaluering (evalueringtekst)
 	VALUES ($1)
 	`
 	stmt, err := db.Prepare(insertStatement)

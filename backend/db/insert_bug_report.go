@@ -28,7 +28,7 @@ func InsertBugReport(bugText string) (error) {
 	}
 
 	insertStatement := `
-	INSERT INTO FeilRapport (feilTekst)
+	INSERT INTO FeilRapport (feiltekst)
 	VALUES ($1)
 	`
 	stmt, err := db.Prepare(insertStatement)
