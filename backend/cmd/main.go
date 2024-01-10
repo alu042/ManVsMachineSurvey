@@ -16,6 +16,9 @@ type UserformData struct {
     Education          string `json:"education"`
     HealthcarePersonnel bool  `json:"healthcare_personnel"`
     Gender             string `json:"gender"`
+    AnsweredBefore     bool `json:"answered_before"`
+    County             string `json:"county"`
+    SubmitDate         string `json:"submit_date"`
 }
 
 type FormData struct {
@@ -45,7 +48,7 @@ func main() {
         }
 
         // Capture both the ID and error returned from InsertData
-		respondentId, err := db.InsertUserData(requestBody.Age, requestBody.Education, requestBody.HealthcarePersonnel, requestBody.Gender)
+		respondentId, err := db.InsertUserData(requestBody.Age, requestBody.Education, requestBody.HealthcarePersonnel, requestBody.Gender, requestBody.AnsweredBefore, requestBody.County, requestBody.SubmitDate)
 		
         if err != nil {
 			fmt.Print(err)

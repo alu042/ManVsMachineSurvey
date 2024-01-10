@@ -52,7 +52,10 @@ func SetupDb() {
 			alder TEXT NOT NULL,
 			utdanningsgrad TEXT NOT NULL,
 			helsepersonell BOOL NOT NULL,
-			kjønn TEXT NOT NULL
+			kjønn TEXT NOT NULL,
+			svartfør BOOL NOT NULL,
+			fylke TEXT NOT NULL,
+			dato TEXT NOT NULL
 		);`,
 		`CREATE TABLE IF NOT EXISTS SvarVurdering (
 			vurderingID SERIAL PRIMARY KEY,
