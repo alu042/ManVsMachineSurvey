@@ -23,6 +23,10 @@ type FormData struct {
     RespondentId       int    `json:"respondentID"`
 }
 
+type BugReport struct {
+    BugText string `json:"bugText"`
+}
+
 func main() {
     router := gin.Default()
     router.Use(cors.Default())
@@ -87,6 +91,28 @@ func main() {
 
         // Respond with the ID of the newly inserted respondent
 		c.JSON(http.StatusOK, "Successfully inserted formdata!")
+    })
+
+    router.POST("/submitbug", func(c *gin.Context) {
+        var requestBody BugReport
+
+        // Bind JSON to the requestBody struct
+        if err := c.BindJSON(&requestBody); err != nil {
+            fmt.Print(err)
+            c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
+            return
+        }
+
+        // Here, you'd insert the bug text into your database
+        err := db.InsertBugReport(requestBody.BugText)
+        if err != nil {
+            fmt.Print(err)
+            c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to insert bug report"})
+            return
+        }
+
+        // Respond with a success message
+        c.JSON(http.StatusOK, "Successfully submitted bug report!")
     })
 
     // Run the server on port 8080
