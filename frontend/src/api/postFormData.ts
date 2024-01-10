@@ -1,4 +1,7 @@
-export const postFormData = (respondentID: number, allFormAnswers: string) => {
+export const postFormData = async (
+	respondentID: number,
+	allFormAnswers: string
+) => {
 	let url = "http://localhost:8080/submitanswers";
 
 	const response = fetch(url, {

@@ -15,12 +15,13 @@
         goto(`${questionNum - 1}`)
     }
 
-    const handleFormSubmit = () => {
+    const handleFormSubmit = async () => {
         let allFormAnswers:string | null = localStorage.getItem("allFormAnswers")
         let respondentID:string | null = localStorage.getItem("RespondentId")
 
         if (allFormAnswers && respondentID) {
-            postFormData(Number(respondentID), allFormAnswers)
+            await postFormData(Number(respondentID), allFormAnswers)
+            goto("/evaluation")
         }
     }
 

@@ -1,4 +1,4 @@
-export const postEvaluationData = (evaluationText: string) => {
+export const postEvaluationData = async (evaluationText: string) => {
 	let url = "http://localhost:8080/submiteval";
 
 	const response = fetch(url, {

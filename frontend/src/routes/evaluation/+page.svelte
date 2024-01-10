@@ -4,9 +4,9 @@
 
     let evaluationText:string = ""
 
-    const handleEvaluationSubmit = () => {
+    const handleEvaluationSubmit = async () => {
         if (evaluationText) {
-            postEvaluationData(evaluationText)
+            await postEvaluationData(evaluationText)
             goto("/")
         } else {
             console.log("error");

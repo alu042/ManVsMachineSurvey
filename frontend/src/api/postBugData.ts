@@ -1,4 +1,4 @@
-export const postBugData = (bugText: string) => {
+export const postBugData = async (bugText: string) => {
 	let url = "http://localhost:8080/submitbug";
 
 	const response = fetch(url, {

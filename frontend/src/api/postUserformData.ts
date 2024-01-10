@@ -2,7 +2,7 @@ interface postUserformDataReponse {
 	respondentID: number;
 }
 
-export const postUserformData = (
+export const postUserformData = async (
 	age: string,
 	education: string,
 	healthcare_personnel: string,

@@ -4,9 +4,9 @@
 
     let bugText:string = ""
 
-    const handleBugSubmit = () => {
+    const handleBugSubmit = async () => {
         if (bugText) {
-            postBugData(bugText)
+            await postBugData(bugText)
             goto("javascript:history.back()")
         } else {
             console.log("error");
