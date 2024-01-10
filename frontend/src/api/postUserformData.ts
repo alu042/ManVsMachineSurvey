@@ -6,10 +6,14 @@ export const postUserformData = (
 	age: string,
 	education: string,
 	healthcare_personnel: string,
-	gender: string
+	gender: string,
+	has_answered_before: string,
+	county: string,
+	submit_date: string
 ): Promise<postUserformDataReponse> => {
 	let url = "http://localhost:8080/submituserform";
 	let personnel = healthcare_personnel == "Ja" ? true : false;
+	let answered_before = has_answered_before == "Ja" ? true : false;
 
 	const response = fetch(url, {
 		method: "POST",
@@ -18,6 +22,9 @@ export const postUserformData = (
 			education: education,
 			healthcare_personnel: personnel,
 			gender: gender,
+			answered_before: answered_before,
+			county: county,
+			submit_date: submit_date,
 		}),
 	})
 		.then((response) => {

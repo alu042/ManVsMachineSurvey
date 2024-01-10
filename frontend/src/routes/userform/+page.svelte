@@ -11,12 +11,17 @@
     let education: string = "PhD"
     let healthcare_personnel: string = "Ja"
     let gender: string = "Mann"
+    let has_answered_before: string = "Nei"
+    let county: string = "Vestland"
 
     let firstUserQuestion: number = 0
 
-    const handleUserformSubmit = async (age: string, education: string, healthcare_personnel: string, gender: string) => {
+    const handleUserformSubmit = async (age: string, education: string, healthcare_personnel: string, gender: string, has_answered_before: string, county: string) => {
         localStorage.clear()
-        const response = await postUserformData(age, education, healthcare_personnel, gender)
+
+        const submitDate = new Date().toISOString()
+
+        const response = await postUserformData(age, education, healthcare_personnel, gender, has_answered_before, county, submitDate)
         const userQuestions = await getUserQuestions(response.respondentID)
             
         goto("form/0")
@@ -36,12 +41,14 @@
         <div class="flex flex-col justify-start items-center w-2/4">
             <UserFormInput formData={age} on:update={(e) => age = e.detail} inputType="radio" label="Alder" options={["18-20", "20-30", "30-40", "40-50", "50-60"]}/>
             <UserFormInput formData={education} on:update={(e) => education = e.detail} inputType="select" label="Utdanningsgrad" options={["PhD", "Master", "Fagbrev", "Bachelor"]}/>
+            <UserFormInput formData={county} on:update={(e) => county = e.detail} inputType="select" label="Fylke" options={["Vestland", "Rogaland", "Møre og Romsdal", "Oslo", "Viken", "Nordland", "Trøndelag", "Innlandet", "Troms og Finnmark", "Vestfold og Telemark", "Agder"]}/>
             <UserFormInput formData={healthcare_personnel} on:update={(e) => healthcare_personnel = e.detail} inputType="radio" label="Helsepersonell" options={["Ja", "Nei"]}/>
             <UserFormInput formData={gender} on:update={(e) => gender = e.detail} inputType="radio" label="Kjønn" options={["Mann", "Kvinne", "Annet"]}/>
+            <UserFormInput formData={has_answered_before} on:update={(e) => has_answered_before = e.detail} inputType="radio" label="Jeg har svart på denne undersøkelsen tidligere" options={["Ja", "Nei"]}/>
         </div>
     </div>
     <div class="flex justify-center items-center gap-8 text-primary font-bold">
-        <ButtonComponent text="Start undersøkelse" filled={true} onclick={() => handleUserformSubmit(age, education, healthcare_personnel, gender)} />
+        <ButtonComponent text="Start undersøkelse" filled={true} onclick={() => handleUserformSubmit(age, education, healthcare_personnel, gender, has_answered_before, county)} />
     </div>
 </div>
 
@@ -56,6 +63,6 @@
         font-size: large;
     }
     p {
-        font-size: large;
+        font-size: larger;
     }
 </style>

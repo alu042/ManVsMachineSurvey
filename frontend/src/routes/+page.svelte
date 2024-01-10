@@ -12,7 +12,8 @@
                 <li><strong>Empati:</strong> Evnen til å oppdage og erkjenne andres følelser og tanker.</li>
                 <li><strong>Kunnskap:</strong> Nøyaktighet og relevans av den medisinske informasjonen gitt.</li>
                 <li><strong>Hjelpsomhet:</strong> Evnen til å gi nyttig og praktisk råd eller støtte.</li>
-            </ul>
+            </ul>               
+        
         </div>
         <div class="flex justify-center items-center w-2/5">
             <a href="/userform">
@@ -36,8 +37,8 @@
         margin-left: 2rem;
         font-size: large;
     }
-    p {
-        font-size: large;
+    p, li{
+        font-size: larger;
     }
     button {
         font-size: large;
