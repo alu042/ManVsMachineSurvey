@@ -27,6 +27,10 @@ type BugReport struct {
     BugText string `json:"bugText"`
 }
 
+type Evaluation struct {
+    EvaluationText string `json:"evaluationText"`
+}
+
 func main() {
     router := gin.Default()
     router.Use(cors.Default())
@@ -113,6 +117,28 @@ func main() {
 
         // Respond with a success message
         c.JSON(http.StatusOK, "Successfully submitted bug report!")
+    })
+
+    router.POST("/submiteval", func(c *gin.Context) {
+        var requestBody Evaluation
+
+        // Bind JSON to the requestBody struct
+        if err := c.BindJSON(&requestBody); err != nil {
+            fmt.Print(err)
+            c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
+            return
+        }
+
+        // Here, you'd insert the bug text into your database
+        err := db.InsertEvaluation(requestBody.EvaluationText)
+        if err != nil {
+            fmt.Print(err)
+            c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to insert evaluation"})
+            return
+        }
+
+        // Respond with a success message
+        c.JSON(http.StatusOK, "Successfully submitted evaluation!")
     })
 
     // Run the server on port 8080
