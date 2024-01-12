@@ -11,3 +11,10 @@ services:
       - POSTGRES_PASSWORD=helse123
       - POSTGRES_USER=admin
       - POSTGRES_DB=helseveileder
+  ginapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: helseveileder
+    depends_on:
+      - postgres
