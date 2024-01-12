@@ -13,7 +13,7 @@ COPY . .
 RUN go mod download
 
 # Build the Go app - change directory to 'cmd' where main.go resides
-RUN go build -o /app/hello
+RUN go build -o /app/hello ./cmd
 
 FROM alpine:latest
 
