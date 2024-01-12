@@ -37,6 +37,10 @@ type Evaluation struct {
 func main() {
     router := gin.Default()
     router.Use(cors.Default())
+
+    router.GET("/hello", func(c *gin.Context) {
+        c.JSON(http.StatusOK, gin.H{"hello":"world"})
+    }) 
     
     // Info about user
     router.POST("/submituserform", func(c *gin.Context) {

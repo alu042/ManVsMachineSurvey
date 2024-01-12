@@ -19,4 +19,4 @@ RUN go build -o main ./cmd
 EXPOSE 8080
 
 # Command to run the executable
-CMD ["./main"]
+CMD ["./cmd/main"]
