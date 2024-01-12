@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Start from the latest golang base image
-FROM golang:latest
+FROM golang:latest AS build
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
@@ -13,10 +13,13 @@ COPY . .
 RUN go mod download
 
 # Build the Go app - change directory to 'cmd' where main.go resides
-RUN go build -o main ./cmd
+RUN go build -o /app/hello
 
-# Expose port 8080 to the outside world
-EXPOSE 8080
+FROM alpine:latest
+
+WORKDIR /app
+
+COPY --from=build /app/hello .
 
 # Command to run the executable
-CMD ["./cmd/main"]
+CMD ["./hello"]
