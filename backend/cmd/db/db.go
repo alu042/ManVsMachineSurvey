@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	host     = "localhost"
+	host     = "postgres"
 	port     = 5432 // This is the default port for PostgreSQL
 	user     = "admin"
 	password = "helse123"
