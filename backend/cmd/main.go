@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"helseveileder/db"
+	"helseveileder/cmd/db"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
