@@ -22,7 +22,7 @@ interface QAData {
 export const getUserQuestions = async (
 	respondentID: number
 ): Promise<QAData> => {
-	let url = `https://helseundersokelsen.no/userquestions?respondentID=${respondentID}`;
+	let url = `https://helseundersokelsen.online/userquestions?respondentID=${respondentID}`;
 
 	const response = fetch(url, {
 		method: "GET",

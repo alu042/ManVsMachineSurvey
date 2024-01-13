@@ -1,5 +1,5 @@
 export const postBugData = async (bugText: string) => {
-	let url = "https://helseundersokelsen.no/submitbug";
+	let url = "https://helseundersokelsen.online/submitbug";
 
 	const response = fetch(url, {
 		method: "POST",

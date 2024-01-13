@@ -1,5 +1,5 @@
 export const postEvaluationData = async (evaluationText: string) => {
-	let url = "https://helseundersokelsen.no/submiteval";
+	let url = "https://helseundersokelsen.online/submiteval";
 
 	const response = fetch(url, {
 		method: "POST",
