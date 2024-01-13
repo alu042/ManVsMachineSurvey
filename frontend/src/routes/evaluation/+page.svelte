@@ -15,15 +15,15 @@
 </script>
 
 <div class="flex flex-col justify-between items-center h-full">
-    <div class="flex flex-col gap-8 h-full mt-8">
-        <div class="flex flex-col gap-4 px-96 items-center">
+    <div class="flex flex-col gap-14 md:gap-8 h-full mt-8">
+        <div class="flex flex-col gap-4 md:px-96 items-center">
             <h1 class="text-3xl text-primary font-bold">Takk for at du tok deg tid!</h1>
             <p>Tusen takk for hjelpen i denne undersøkelsen! Vi setter stor pris på det og håper du får en fin dag videre.</p>
             <p>Har du tid så setter vi veldig pris på om du skrevet en liten tilbakemelding til oss i tekstfeltet under:</p>
         </div>
         
-        <div class="flex flex-col gap-4 justify-center items-center">
-            <textarea bind:value={evaluationText} cols="30" rows="8" class="border-solid border-gray-400 border-2 p-3 md:text-l w-1/3" placeholder="Skriv evaluering her"></textarea>
+        <div class="flex flex-col gap-12 md:gap-8 justify-center items-center">
+            <textarea bind:value={evaluationText} cols="30" rows="8" class="border-solid border-gray-400 border-2 p-3 md:text-l md:w-1/3 rounded-md" placeholder="Skriv evaluering her"></textarea>
             <button 
                 class="text-primary hover:bg-primary hover:text-bg font-bold border-primary border-2 rounded-full px-8 py-1"
                 on:click={handleEvaluationSubmit}

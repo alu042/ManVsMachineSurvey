@@ -1,6 +1,6 @@
 <div class="flex flex-col justify-between items-center h-full">
     <div class="flex h-full mt-8">
-        <div class="flex flex-col gap-4 px-96 items-center">
+        <div class="flex flex-col gap-4 md:px-96 items-center">
             <h1 class="text-3xl text-primary font-bold">Personvern</h1>
             <p>
                 Vi verdsetter din deltakelse i denne studien. Som en del av vår forpliktelse til å sikre personvern, ønsker vi å informere deg om hvordan vi håndterer dine data.
@@ -13,7 +13,7 @@
             </p>
         </div>
     </div>
-    <div class="flex justify-center items-center gap-8 text-primary font-bold">
+    <div class="flex justify-center items-center gap-8 mt-10 md:mt-0 text-primary font-bold">
         <button><a href="/">Tilbake</a></button>
     </div>
 </div>

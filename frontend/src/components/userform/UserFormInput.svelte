@@ -14,8 +14,8 @@
     import Select from "./inputs/Select.svelte";
 </script>
 
-<div class="flex justify-start items-center h-1/4 w-full ">
-    <p class="text-primary font-bold w-1/5">{label}:</p>
+<div class="flex flex-col md:flex-row justify-between md:justify-start items-start gap-3 md:gap-0 md:h-1/4 w-full">
+    <p class="text-primary font-bold w-auto">{label}:</p>
     {#if inputType == "radio"}
         <RadioButtons on:update={(e) => handleFormChange(e.detail)} selected={formData} options={options}/>
     {/if}

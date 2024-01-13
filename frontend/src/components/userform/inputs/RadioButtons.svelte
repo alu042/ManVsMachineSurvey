@@ -9,7 +9,7 @@
     export let selected: string
 </script>
 
-<div class="flex justify-between w-full">
+<div class="flex justify-between w-full md:pl-5">
 {#each options as data, index (data)}
     <button name={data} on:click={() => handleButtonClick(data)} class="flex flex-col justify-start items-center w-12 text-center hover:cursor-pointer">
         <div class={`${selected == data && "bg-primary"} flex justify-center items-center h-6 w-6 rounded-full border-2 border-primary hover:bg-primary`}>

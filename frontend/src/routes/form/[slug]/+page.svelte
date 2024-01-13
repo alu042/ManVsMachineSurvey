@@ -63,9 +63,9 @@
     });
 </script>
 
-<div class="flex flex-col h-full">
+<div class="flex flex-col h-full gap-4">
     <FormHeader questionNum={questionNumber} formQuestion={formQuestion}/>
-    <div class="flex h-full justify-between gap-12">
+    <div class="flex flex-col md:flex-row h-full justify-between gap-12">
         {#key questionNumber}     
             <AnswerBox on:update={(e) => question1Answered = e.detail} answerNum={1} answerText={questionAnswer1Text} answerID={questionAnswer1ID}/>
             <AnswerBox on:update={(e) => question2Answered = e.detail} answerNum={2} answerText={questionAnswer2Text} answerID={questionAnswer2ID}/>

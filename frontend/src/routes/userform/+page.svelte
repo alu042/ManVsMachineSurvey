@@ -28,17 +28,17 @@
     }
 </script>
 
-<div class="flex flex-col justify-center gap-20 h-full ">
-    <a class="ml-32" href="/">
+<div class="flex flex-col md:justify-center gap-6 md:gap-20 h-full">
+    <a class="md:ml-32" href="/">
         <ArrowBack width="2rem" />
     </a>
-    <div class="flex h-4/5 ">
-        <div class="flex flex-col justify-center w-2/4 gap-4 px-32 ">
-            <h1 class="text-3xl text-primary font-bold">Informasjon om deltaker</h1>
+    <div class="flex flex-col md:flex-row h-full md:h-4/5 gap-6">
+        <div class="flex flex-col justify-center w-full md:w-2/4 gap-4 md:px-32 ">
+            <h1 class="text-3xl text-primary font-bold">Deltakerinformasjon</h1>
             <p>Til undersøkelsen trenger vi opplysninger om din aldersgruppe, utdanningsgrad, kjønn og bekreftelse på at du er helsepersonell.</p>
             <p>Vi vil igjen minne om at denne undersøkelsen er helt anonym. Se <a href="/personvern"class="text-primary font-bold">Personvern</a> for mer informasjon.</p>  
         </div>
-        <div class="flex flex-col justify-start items-center w-2/4">
+        <div class="flex flex-col gap-6 justify-start items-center md:w-2/4">
             <UserFormInput formData={age} on:update={(e) => age = e.detail} inputType="radio" label="Alder" options={["18-20", "20-30", "30-40", "40-50", "50-60"]}/>
             <UserFormInput formData={education} on:update={(e) => education = e.detail} inputType="select" label="Utdanningsgrad" options={["PhD", "Master", "Fagbrev", "Bachelor"]}/>
             <UserFormInput formData={county} on:update={(e) => county = e.detail} inputType="select" label="Fylke" options={["Vestland", "Rogaland", "Møre og Romsdal", "Oslo", "Viken", "Nordland", "Trøndelag", "Innlandet", "Troms og Finnmark", "Vestfold og Telemark", "Agder"]}/>
@@ -47,7 +47,7 @@
             <UserFormInput formData={has_answered_before} on:update={(e) => has_answered_before = e.detail} inputType="radio" label="Jeg har svart på denne undersøkelsen tidligere" options={["Ja", "Nei"]}/>
         </div>
     </div>
-    <div class="flex justify-center items-center gap-8 text-primary font-bold">
+    <div class="flex justify-center items-center gap-8 text-primary font-bold py-10 md:py-0">
         <ButtonComponent text="Start undersøkelse" filled={true} onclick={() => handleUserformSubmit(age, education, healthcare_personnel, gender, has_answered_before, county)} />
     </div>
 </div>
