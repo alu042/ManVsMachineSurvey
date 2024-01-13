@@ -149,6 +149,6 @@ func main() {
     })
 
     // Run the server on port 8080
+    db.SetupDb()
     router.Run(":8080")
-    // db.SetupDb()
 }
