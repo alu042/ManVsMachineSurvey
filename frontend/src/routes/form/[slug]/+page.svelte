@@ -63,7 +63,7 @@
     });
 </script>
 
-<div class="flex flex-col h-full gap-4">
+<div class="flex flex-col h-full md:h-screen gap-4">
     <FormHeader questionNum={questionNumber} formQuestion={formQuestion}/>
     <div class="flex flex-col md:flex-row h-full justify-between gap-12">
         {#key questionNumber}     

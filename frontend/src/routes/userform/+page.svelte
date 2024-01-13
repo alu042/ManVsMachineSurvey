@@ -28,8 +28,8 @@
     }
 </script>
 
-<div class="flex flex-col md:justify-center gap-6 md:gap-20 h-full">
-    <a class="md:ml-32" href="/">
+<div class="flex flex-col md:justify-center gap-6 md:gap-20 h-full md:h-screen">
+    <a class="md:ml-32 mt-5" href="/">
         <ArrowBack width="2rem" />
     </a>
     <div class="flex flex-col md:flex-row h-full md:h-4/5 gap-6">
@@ -47,7 +47,7 @@
             <UserFormInput formData={has_answered_before} on:update={(e) => has_answered_before = e.detail} inputType="radio" label="Jeg har svart på denne undersøkelsen tidligere" options={["Ja", "Nei"]}/>
         </div>
     </div>
-    <div class="flex justify-center items-center gap-8 text-primary font-bold py-10 md:py-0">
+    <div class="flex justify-center items-center gap-8 text-primary font-bold py-10 md:pb-4">
         <ButtonComponent text="Start undersøkelse" filled={true} onclick={() => handleUserformSubmit(age, education, healthcare_personnel, gender, has_answered_before, county)} />
     </div>
 </div>
