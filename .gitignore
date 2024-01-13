@@ -11,3 +11,6 @@ frontend/!.env.example
 frontend/vite.config.js.timestamp-*
 frontend/vite.config.ts.timestamp-*
 frontend/package-lock.json
+
+# Backend
+backend/certs
