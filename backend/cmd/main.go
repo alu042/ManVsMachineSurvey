@@ -7,7 +7,6 @@ import (
 
 	"helseveileder/cmd/db"
 
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -36,7 +35,7 @@ type Evaluation struct {
 
 func main() {
     router := gin.Default()
-    router.Use(cors.Default())
+    // router.Use(cors.Default())
 
     router.GET("/hello", func(c *gin.Context) {
         c.JSON(http.StatusOK, gin.H{"hello":"world"})

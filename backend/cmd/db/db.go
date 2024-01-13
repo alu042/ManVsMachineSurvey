@@ -93,7 +93,7 @@ func SetupDb() {
 		(7, 7, true, 'Trøtthet kan være en bivirkning av mange medisiner. Snakk med legen din om symptomene dine, spesielt hvis de er alvorlige.'),
 		(8, 8, false, 'Diabetesdiagnose stilles gjennom blodsukkermålinger. Symptomer inkluderer tørste, hyppig vannlating, tretthet og tåkesyn.'),
 		(9, 9, true, 'Voksne bør vurdere å få stivkrampe, difteri, kikhoste, influensa og pneumokokkvaksiner, blant andre.'),
-		(10, 10, false, 'Ja, det er mulig å ha for høyt nivå av vitaminer, spesielt fra kosttilskudd. Det er viktig å følge anbefalte doser.');
+		(10, 10, false, 'Ja, det er mulig å ha for høyt nivå av vitaminer, spesielt fra kosttilskudd. Det er viktig å følge anbefalte doser.'),
 		(11, 1, true, 'Dette kan være en mild betennelse eller infeksjon. Unngå å irritere området, og hvis det ikke forbedres, ta kontakt med lege for en sjekk.'),
 		(12, 2, false, 'Enkelte kan oppleve svimmelhet hvis de reiser seg for fort på grunn av blodtrykksendringer. Hvis dette skjer ofte, bør du diskutere det med fastlegen.'),
 		(13, 3, false, 'Det anbefales at voksne får målt blodtrykket sitt minst hvert femte år. Hvis du har risikofaktorer for hjertesykdom, kanskje årlig.'),
