@@ -20,3 +20,13 @@ services:
     image: helseveileder
     depends_on:
       - postgres
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      - ginapi
