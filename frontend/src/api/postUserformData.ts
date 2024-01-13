@@ -11,7 +11,7 @@ export const postUserformData = async (
 	county: string,
 	submit_date: string
 ): Promise<postUserformDataReponse> => {
-	let url = "http://localhost:8080/submituserform";
+	let url = "https://helseundersokelsen.no/submituserform";
 	let personnel = healthcare_personnel == "Ja" ? true : false;
 	let answered_before = has_answered_before == "Ja" ? true : false;
 

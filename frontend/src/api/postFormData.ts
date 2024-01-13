@@ -2,7 +2,7 @@ export const postFormData = async (
 	respondentID: number,
 	allFormAnswers: string
 ) => {
-	let url = "http://localhost:8080/submitanswers";
+	let url = "https://helseundersokelsen.no/submitanswers";
 
 	const response = fetch(url, {
 		method: "POST",
