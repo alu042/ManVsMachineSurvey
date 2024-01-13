@@ -35,7 +35,7 @@ type Evaluation struct {
 
 func main() {
     router := gin.Default()
-    // router.Use(cors.Default())
+    //router.Use(cors.Default())
 
     router.GET("/hello", func(c *gin.Context) {
         c.JSON(http.StatusOK, gin.H{"hello":"world"})
@@ -148,6 +148,6 @@ func main() {
     })
 
     // Run the server on port 8080
-    // db.SetupDb()
+    //db.SetupDb()
     router.Run(":8080")
 }
