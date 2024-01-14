@@ -7,7 +7,7 @@
     const handleBugSubmit = async () => {
         if (bugText) {
             await postBugData(bugText)
-            goto("javascript:history.back()")
+            goto(window.location = "javascript:history.back()")
         } else {
             console.log("error");
         }
