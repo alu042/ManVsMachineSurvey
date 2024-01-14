@@ -27,7 +27,7 @@
 
 </script>
 
-<div class="flex justify-center items-center gap-8 mt-8 md:mb-5">
+<div class="flex justify-center items-center gap-8 pb-4 mt-4 md:mb-5">
     <button disabled={questionNum == 0} class={`flex items-center gap-2 text-primary font-semibold ${questionNum == 0 && "opacity-50"}`} on:click={() => gotoPrevPage(questionNum)}>
         <ArrowChevron width=16 direction="left"/>
         Forrige spørsmål

@@ -14,6 +14,8 @@
     let empathy:string
     let helpfulness:string
 
+    let isExpanded:boolean = false
+
     const handleFormUpdate = () => {
         if (knowledge && empathy && helpfulness) {
             dispatch("update", true)
@@ -64,8 +66,13 @@
 <div class="flex flex-col">
     <div class="flex flex-col gap-2 mb-6">
         <h1 class="text-xl text-primary font-bold text-center">Svar {answerNum}:</h1>
-        <div class="bg-secondary p-6 rounded-xl text-sm">
-            {answerText}
+        <div class="flex flex-col justify-between bg-secondary rounded-xl px-6 pt-6">     
+            <div class={`text-sm ${!isExpanded && "max-h-48"} overflow-hidden`}>
+                {answerText}
+            </div>
+            <button class="py-2 text-primary font-semibold" on:click={() => isExpanded = !isExpanded}>
+                {isExpanded ? "Vis mindre" : "Vis resten av svaret"}
+            </button>
         </div>
     </div>
     <div class="flex flex-col justify-start items-center gap-6">

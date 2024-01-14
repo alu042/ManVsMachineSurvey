@@ -15,11 +15,15 @@
 </script>
 
 <div class="flex flex-col md:flex-row justify-between md:justify-start items-start gap-3 md:gap-0 md:h-1/4 w-full">
-    <p class="text-primary font-bold w-auto">{label}:</p>
-    {#if inputType == "radio"}
-        <RadioButtons on:update={(e) => handleFormChange(e.detail)} selected={formData} options={options}/>
-    {/if}
-    {#if inputType == "select"}
-        <Select on:update={(e) => handleFormChange(e.detail)} options={options}/>
-    {/if}
+    <div class="w-full md:w-1/6">
+        <p class="text-primary font-bold w-auto">{label}:</p>
+    </div>
+    <div class="w-full md:w-5/6">
+        {#if inputType == "radio"}
+            <RadioButtons on:update={(e) => handleFormChange(e.detail)} selected={formData} options={options}/>
+        {/if}
+        {#if inputType == "select"}
+            <Select on:update={(e) => handleFormChange(e.detail)} options={options}/>
+        {/if}
+    </div>
 </div>
