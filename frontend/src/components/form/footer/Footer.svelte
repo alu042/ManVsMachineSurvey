@@ -8,6 +8,8 @@
     export let answeredAll:boolean
     export let answer1ID:number
     export let answer2ID:number
+    
+    let wantsToSubmit:boolean
 
     const gotoNextPage = async (questionNum: number) => {        
         goto(`${questionNum + 1}`)
@@ -42,6 +44,8 @@
         if (allFormAnswers && respondentID) {
             await postFormData(Number(respondentID), allFormAnswers)
             goto("/evaluation")
+        } else {
+            goto("/")
         }
     }
 
@@ -62,12 +66,22 @@
             <ArrowChevron width=16 direction="right"/>
         </button>
     </div>  
-    <div class="flex gap-8">
+    <div class="flex gap-8 items-center">
         <button on:click={() => skipQuestion(questionNum)} class="border-2 border-primary text-primary rounded-3xl hover:bg-primary hover:text-bg px-3 py-2">
             Ønsker ikke vurdere dette spørsmålet
         </button>
-        <button on:click={handleFormSubmit} disabled={(questionNum != 0 && questionNum % 4 == 0) || !answeredAll} class={`border-2 border-primary bg-primary text-bg rounded-3xl px-3 py-2 ${(questionNum != 0 && questionNum % 4 == 0) || !answeredAll && "opacity-50"} ${questionNum != 0 && questionNum % 4 == 0 && "opacity-50"} ${questionNum % 4 == 0 && questionNum != 0 &&  answeredAll && "hidden"}`}>
+        {#if wantsToSubmit}
+            <div class="flex flex-col gap-2">
+                <p class="text-primary font-semibold text-center">Er du sikker på at du vil avslutte undersøkelsen?</p>
+                <div class="flex flex-grow justify-center gap-4">
+                    <button on:click={handleFormSubmit} class={`border-2 border-primary bg-primary text-bg rounded-full hover:bg-bg hover:text-primary px-7 py-2`}>Ja</button>
+                    <button on:click={() => wantsToSubmit = false} class={`border-2 border-primary bg-primary text-bg rounded-full hover:bg-bg hover:text-primary px-7 py-2`}>Nei</button>
+                </div>
+            </div>
+        {:else}
+        <button on:click={() => wantsToSubmit = true} class={`border-2 border-primary bg-primary text-bg rounded-3xl px-3 py-2 ${questionNum % 4 == 0 && questionNum != 0 && answeredAll && "hidden"}`}>
             Avslutt undersøkelsen og send inn svar
         </button>
+        {/if}
     </div>
 </div>
