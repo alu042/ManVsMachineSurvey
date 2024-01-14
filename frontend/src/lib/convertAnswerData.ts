@@ -17,6 +17,9 @@ export const convertAnswerDataToNumeric = (value: string): number => {
 		case "Veldig bra":
 			result = 5;
 			break;
+		case "Vet ikke":
+			result = 6;
+			break;
 		default:
 			result = 0;
 			break;
@@ -43,6 +46,9 @@ export const convertAnswerDataToString = (value: number): string => {
 			break;
 		case 5:
 			result = "Veldig bra";
+			break;
+		case 6:
+			result = "Vet ikke";
 			break;
 		default:
 			break;
