@@ -17,7 +17,7 @@
 
 <div class="flex flex-col justify-between items-center h-full">
     <div class="flex flex-col gap-14 md:gap-8 h-full mt-8">
-        <div class="flex flex-col gap-4 md:px-96 items-center">
+        <div class="flex flex-col gap-4 lg:px-60 items-center">
             <h1 class="text-3xl text-primary font-bold">Takk for at du tok deg tid!</h1>
             <p>Tusen takk for hjelpen i denne undersøkelsen! Vi setter stor pris på det og håper du får en fin dag videre.</p>
             <p>Har du tid så setter vi veldig pris på om du skrevet en liten tilbakemelding til oss i tekstfeltet under:</p>
