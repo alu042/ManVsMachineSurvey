@@ -2,8 +2,10 @@ package db
 
 import (
 	"database/sql"
+	"encoding/csv"
 	"fmt"
 	"log"
+	"os"
 
 	_ "github.com/lib/pq"
 )
@@ -25,6 +27,28 @@ func InsertEvaluation(evaluationText string) (error) {
 	err = db.Ping()
 	if err != nil {
 		log.Fatalf("Error connecting to the database: %v\n", err)
+	}
+
+	// Write evaluationText to backup-file
+	file, err := os.OpenFile("cmd/db/backups/evaluation_backup.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	if err != nil {
+		log.Fatalln("error opening file", err)
+	}
+	defer file.Close()
+
+	// Prepare the row to be written
+	rowSlice := []string{evaluationText}
+
+	// Create a CSV writer and write the row
+	csvwriter := csv.NewWriter(file)
+	if err := csvwriter.Write(rowSlice); err != nil {
+		log.Fatalln("error writing record to file", err)
+	}
+
+	// Flush the writer and check for errors
+	csvwriter.Flush()
+	if err := csvwriter.Error(); err != nil {
+		log.Fatal(err)
 	}
 
 	insertStatement := `
