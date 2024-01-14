@@ -13,6 +13,8 @@
     let questionAnswer2Text: string = ""
     let questionAnswer2ID: number = 0
     let questionNumber: number = 0
+    
+    let shouldSwitch = false;
 
     let question1Answered: boolean = false
     let question2Answered: boolean = false
@@ -60,16 +62,24 @@
     // On mount, call the update function
     onMount(() => {
         updateQuestionData();
+        shouldSwitch = Math.random() >= 0.5;
     });
 </script>
 
-<div class="flex flex-col h-full md:h-screen gap-4">
+<div class="flex flex-col h-full md:h-screen gap-10">
     <FormHeader questionNum={questionNumber} formQuestion={formQuestion}/>
-    <div class="flex flex-col md:flex-row h-full justify-between gap-12">
-        {#key questionNumber}     
-            <AnswerBox on:update={(e) => question1Answered = e.detail} answerNum={1} answerText={questionAnswer1Text} answerID={questionAnswer1ID}/>
-            <AnswerBox on:update={(e) => question2Answered = e.detail} answerNum={2} answerText={questionAnswer2Text} answerID={questionAnswer2ID}/>
-        {/key}
+    <div class="flex flex-col md:flex-row h-full  justify-between gap-12">
+        {#if shouldSwitch}
+            {#key questionNumber}
+                <AnswerBox on:update={(e) => question2Answered = e.detail} answerNum={2} answerText={questionAnswer2Text} answerID={questionAnswer2ID}/>
+                <AnswerBox on:update={(e) => question1Answered = e.detail} answerNum={1} answerText={questionAnswer1Text} answerID={questionAnswer1ID}/>
+            {/key}
+        {:else}
+            {#key questionNumber}
+                <AnswerBox on:update={(e) => question1Answered = e.detail} answerNum={1} answerText={questionAnswer1Text} answerID={questionAnswer1ID}/>
+                <AnswerBox on:update={(e) => question2Answered = e.detail} answerNum={2} answerText={questionAnswer2Text} answerID={questionAnswer2ID}/>
+            {/key}
+        {/if}
     </div>
     {#key questionNumber}
         <Footer answeredAll={question1Answered && question2Answered} questionNum={Number(questionNumber)}/>
