@@ -44,7 +44,7 @@ func GetUserQuestions(respondentID int) ([]UserQuestions, error) {
 		log.Fatalf("Error connecting to the database: %v\n", err)
 	}
 	
-	getQuestionsStatement := `SELECT s.SpørsmålID, s.tekst
+	getQuestionsStatement := `SELECT DISTINCT s.SpørsmålID, s.tekst
         FROM Spørsmål s
         LEFT JOIN Spørsmålsvar ss ON s.spørsmålID = ss.spørsmålID
         LEFT JOIN SvarVurdering sv ON ss.svarID = sv.svarID AND sv.respondentID = $1
