@@ -17,9 +17,9 @@ services:
       dockerfile: Dockerfile
     image: helseveileder
     volumes:
-      - ~/helseveileder/backend/cmd/db/backups/answer_backup.csv
-      - ~/helseveileder/backend/cmd/db/backups/bugreport_backup.csv
-      - ~/helseveileder/backend/cmd/db/backups/evaluation_backup.csv
+      - ${HOME}/helseveileder/backend/cmd/db/backups/answer_backup.csv
+      - ${HOME}/helseveileder/backend/cmd/db/backups/bugreport_backup.csv
+      - ${HOME}/helseveileder/backend/cmd/db/backups/evaluation_backup.csv
     depends_on:
       - postgres
   nginx:
