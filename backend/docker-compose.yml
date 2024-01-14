@@ -16,6 +16,10 @@ services:
       context: .
       dockerfile: Dockerfile
     image: helseveileder
+    volumes:
+      - ./cmd/db/backups/answer_backup.csv
+      - ./cmd/db/backups/bugreport_backup.csv
+      - ./cmd/db/backups/evaluation_backup.csv
     depends_on:
       - postgres
   nginx:

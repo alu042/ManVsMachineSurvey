@@ -45,7 +45,7 @@ func InsertUserAnswers(respondentId int, allAnswers string) (error) {
 	}
 
 	// Write answers to backup-file
-	file, err := os.OpenFile("cmd/db/backups/answer_backup.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	file, err := os.OpenFile("cmd/db/backups/answer_backup.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0777)
     if err != nil {
         fmt.Println(err)
     }
