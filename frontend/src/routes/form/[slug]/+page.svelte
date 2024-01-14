@@ -14,8 +14,6 @@
     let questionAnswer2ID: number = 0
     let questionNumber: number = 0
 
-    let shouldSwitch = false;
-
     let question1Answered: boolean = false
     let question2Answered: boolean = false
     
@@ -31,10 +29,17 @@
         if (localstoragequestions) {
             let questions = JSON.parse(localstoragequestions).questions;
             formQuestion = questions[questionNumber].Question.QuestionText;
-            questionAnswer1Text = questions[questionNumber].Answers[0].AnswerText;
-            questionAnswer1ID = questions[questionNumber].Answers[0].AnswerID;
-            questionAnswer2Text = questions[questionNumber].Answers[1].AnswerText;
-            questionAnswer2ID = questions[questionNumber].Answers[1].AnswerID;
+            if (Math.random() >= 0.5) { 
+                questionAnswer1Text = questions[questionNumber].Answers[0].AnswerText;
+                questionAnswer1ID = questions[questionNumber].Answers[0].AnswerID;
+                questionAnswer2Text = questions[questionNumber].Answers[1].AnswerText;
+                questionAnswer2ID = questions[questionNumber].Answers[1].AnswerID;
+            } else {
+                questionAnswer1Text = questions[questionNumber].Answers[1].AnswerText;
+                questionAnswer1ID = questions[questionNumber].Answers[1].AnswerID;
+                questionAnswer2Text = questions[questionNumber].Answers[0].AnswerText;
+                questionAnswer2ID = questions[questionNumber].Answers[0].AnswerID;
+            }
         }
 
         let allFormAnswers:string | null = localStorage.getItem("allFormAnswers")
@@ -62,32 +67,20 @@
     // On mount, call the update function
     onMount(() => {
         updateQuestionData();
-        shouldSwitch = Math.random() >= 0.5;
     });
 </script>
 
 <div class="flex flex-col h-full md:h-screen gap-10">
     <FormHeader questionNum={questionNumber} formQuestion={formQuestion}/>
     <div class="flex flex-col md:flex-row h-full justify-between gap-12">
-        {#if shouldSwitch}
-            {#key questionNumber}
-            <div class="flex-1">
-                <AnswerBox on:update={(e) => question2Answered = e.detail} answerNum={2} answerText={questionAnswer2Text} answerID={questionAnswer2ID}/>
-            </div>
-            <div class="flex-1">
-                <AnswerBox on:update={(e) => question1Answered = e.detail} answerNum={1} answerText={questionAnswer1Text} answerID={questionAnswer1ID}/>
-            </div>
-            {/key}
-        {:else}
-            {#key questionNumber}
+        {#key questionNumber}
             <div class="flex-1">
                 <AnswerBox on:update={(e) => question1Answered = e.detail} answerNum={1} answerText={questionAnswer1Text} answerID={questionAnswer1ID}/>
             </div>
             <div class="flex-1">
                 <AnswerBox on:update={(e) => question2Answered = e.detail} answerNum={2} answerText={questionAnswer2Text} answerID={questionAnswer2ID}/>
             </div>
-            {/key}
-        {/if}
+        {/key}
     </div>
     {#key questionNumber}
         <Footer answeredAll={question1Answered && question2Answered} questionNum={Number(questionNumber)}/>
