@@ -9,7 +9,7 @@
     <div class="flex justify-center">
         <div class="flex flex-grow flex-col md:flex-row md:justify-center items-center md:w-4/5 gap-4">
             <h1 class="text-xl text-primary font-bold text-center">Spørsmål {Number(questionNum) + 1}</h1>
-            <div class="border-b-2 md:border-r-2 border-primary min-h-24 w-full md:w-0 md:h-full" />
+            <div class="border-b-2 md:border-r-2 border-primary md:min-h-24 w-full md:w-0 md:h-full" />
             <p class="text-sm">{formQuestion}</p>
         </div>
     </div>

@@ -15,7 +15,7 @@
 </script>
 
 <div class="flex flex-col md:flex-row justify-between md:justify-start items-start gap-3 md:gap-0 md:h-1/4 w-full">
-    <div class="w-full md:w-1/6">
+    <div class="w-full md:w-3/12">
         <p class="text-primary font-bold w-auto">{label}:</p>
     </div>
     <div class="w-full md:w-5/6">

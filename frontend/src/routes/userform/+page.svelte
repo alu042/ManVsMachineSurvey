@@ -28,7 +28,7 @@
     }
 </script>
 
-<div class="flex flex-col md:justify-center gap-6 md:gap-20 h-full md:h-screen">
+<div class="flex flex-col md:justify-center gap-6 md:gap-10 h-full md:h-screen">
     <a class="md:ml-32 mt-5" href="/">
         <ArrowBack width="2rem" />
     </a>
