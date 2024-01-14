@@ -54,6 +54,7 @@ func SetupDb() {
 			alder TEXT NOT NULL,
 			utdanningsgrad TEXT NOT NULL,
 			helsepersonell BOOL NOT NULL,
+			harlisens BOOL NOT NULL,
 			kjønn TEXT NOT NULL,
 			svartfør BOOL NOT NULL,
 			fylke TEXT NOT NULL,

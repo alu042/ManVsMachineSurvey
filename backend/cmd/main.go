@@ -14,6 +14,7 @@ type UserformData struct {
     Age                string `json:"age"`
     Education          string `json:"education"`
     HealthcarePersonnel bool  `json:"healthcare_personnel"`
+    IsLicensed         bool  `json:"is_licensed"`
     Gender             string `json:"gender"`
     AnsweredBefore     bool `json:"answered_before"`
     County             string `json:"county"`
@@ -35,7 +36,7 @@ type Evaluation struct {
 
 func main() {
     router := gin.Default()
-    //router.Use(cors.Default())
+    // router.Use(cors.Default())
 
     router.GET("/hello", func(c *gin.Context) {
         c.JSON(http.StatusOK, gin.H{"hello":"world"})
@@ -51,7 +52,7 @@ func main() {
         }
 
         // Capture both the ID and error returned from InsertData
-		respondentId, err := db.InsertUserData(requestBody.Age, requestBody.Education, requestBody.HealthcarePersonnel, requestBody.Gender, requestBody.AnsweredBefore, requestBody.County, requestBody.SubmitDate)
+		respondentId, err := db.InsertUserData(requestBody.Age, requestBody.Education, requestBody.HealthcarePersonnel, requestBody.IsLicensed, requestBody.Gender, requestBody.AnsweredBefore, requestBody.County, requestBody.SubmitDate)
 		
         if err != nil {
 			fmt.Print(err)
@@ -148,6 +149,6 @@ func main() {
     })
 
     // Run the server on port 8080
-    //db.SetupDb()
+    // db.SetupDb()
     router.Run(":8080")
 }

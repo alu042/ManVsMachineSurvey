@@ -10,7 +10,7 @@
                     All informasjon du gir vil bli lagret anonymt. Dette betyr at svarene du gir ikke vil kunne spores tilbake til deg.
                 </p>
                 <p>
-                    Vi registrerer alder i kohorter (10-20, 21-30, 31-40 osv.), utdanningsnivå, om du er helsepersonell (ja/nei), og kjønn. Dette er for å få en overordnet forståelse av deltakerne i studien. Vi spør ikke om personidentifiserbare opplysninger som navn, fødselsdato, personnummer, e-postadresse, telefonnummer eller geografiske data.
+                    Vi registrerer alder i kohorter (10-20, 21-30, 31-40 osv.), kjønn, høyeste fullførte utdanningsgrad og om du er lege eller medisinstudent med lisens, om du er helsepersonell (ja/nei), og kjønn. Dette er for å få en overordnet forståelse av deltakerne i studien. Vi spør ikke om personidentifiserbare opplysninger som navn, fødselsdato, personnummer, e-postadresse, telefonnummer eller geografiske data.
                 </p>
             </div>
         </div>

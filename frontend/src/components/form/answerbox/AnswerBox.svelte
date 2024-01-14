@@ -76,8 +76,8 @@
         </div>
     </div>
     <div class="flex flex-col justify-start items-center gap-6">
-        <UserFormInput formData={knowledge} on:update={(e) => {knowledge = e.detail; handleFormUpdate()}} inputType="radio" label="Kunnskap" options={["Veldig dårlig", "Dårlig", "Nøytral", "Bra", "Veldig bra"]}/>
+        <UserFormInput formData={knowledge} on:update={(e) => {knowledge = e.detail; handleFormUpdate()}} inputType="radio" label="Kunnskap" options={["Veldig dårlig", "Dårlig", "Nøytral", "Bra", "Veldig bra", "Vet ikke"]}/>
         <UserFormInput formData={empathy} on:update={(e) => {empathy = e.detail; handleFormUpdate()}} inputType="radio" label="Empati" options={["Veldig dårlig", "Dårlig", "Nøytral", "Bra", "Veldig bra"]}/>
-        <UserFormInput formData={helpfulness} on:update={(e) => {helpfulness = e.detail; handleFormUpdate()}} inputType="radio" label="Hjelpsomhet" options={["Veldig dårlig", "Dårlig", "Nøytral", "Bra", "Veldig bra", "Vet ikke"]}/>
+        <UserFormInput formData={helpfulness} on:update={(e) => {helpfulness = e.detail; handleFormUpdate()}} inputType="radio" label="Hjelpsomhet" options={["Veldig dårlig", "Dårlig", "Nøytral", "Bra", "Veldig bra"]}/>
     </div>
 </div>

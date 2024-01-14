@@ -6,6 +6,7 @@ export const postUserformData = async (
 	age: string,
 	education: string,
 	healthcare_personnel: string,
+	is_licensed: string,
 	gender: string,
 	has_answered_before: string,
 	county: string,
@@ -13,6 +14,7 @@ export const postUserformData = async (
 ): Promise<postUserformDataReponse> => {
 	let url = "https://helseundersokelsen.online/submituserform";
 	let personnel = healthcare_personnel == "Ja" ? true : false;
+	let licensed = is_licensed == "Ja" ? true : false;
 	let answered_before = has_answered_before == "Ja" ? true : false;
 
 	const response = fetch(url, {
@@ -21,6 +23,7 @@ export const postUserformData = async (
 			age: age,
 			education: education,
 			healthcare_personnel: personnel,
+			is_licensed: licensed,
 			gender: gender,
 			answered_before: answered_before,
 			county: county,

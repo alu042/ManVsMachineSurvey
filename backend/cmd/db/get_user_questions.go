@@ -53,7 +53,7 @@ func GetUserQuestions(respondentID int) ([]UserQuestions, error) {
 				FROM Spørsmålsvar ss
 				LEFT JOIN SvarVurdering sv ON ss.svarID = sv.svarID
 				GROUP BY ss.spørsmålID
-				HAVING COUNT(sv.vurderingID) < 10
+				HAVING COUNT(sv.vurderingID) < 3
 			) AS subquery ON s.spørsmålID = subquery.spørsmålID
 			WHERE subquery.spørsmålID IS NOT NULL
 			LIMIT 5
