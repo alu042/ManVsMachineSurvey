@@ -45,13 +45,29 @@ func GetUserQuestions(respondentID int) ([]UserQuestions, error) {
 	}
 	
 	getQuestionsStatement := `
-		SELECT s.SpørsmålID, s.tekst
-		FROM Spørsmål s
-		LEFT JOIN Spørsmålsvar ss ON s.spørsmålID = ss.spørsmålID
-		LEFT JOIN SvarVurdering sv ON ss.svarID = sv.svarID AND sv.respondentID = $1
-		WHERE sv.vurderingID IS NULL
-		ORDER BY RANDOM()
-		LIMIT 5;
+		WITH FilteredQuestions AS (
+			SELECT s.SpørsmålID, s.tekst
+			FROM Spørsmål s
+			LEFT JOIN (
+				SELECT ss.spørsmålID
+				FROM Spørsmålsvar ss
+				LEFT JOIN SvarVurdering sv ON ss.svarID = sv.svarID
+				GROUP BY ss.spørsmålID
+				HAVING COUNT(sv.vurderingID) < 10
+			) AS subquery ON s.spørsmålID = subquery.spørsmålID
+			WHERE subquery.spørsmålID IS NOT NULL
+			LIMIT 5
+		)
+		
+		SELECT * FROM FilteredQuestions
+		UNION ALL
+		SELECT * FROM (
+			SELECT s.SpørsmålID, s.tekst
+			FROM Spørsmål s
+			ORDER BY RANDOM()
+			LIMIT 5
+		) RandomQuestions
+		WHERE NOT EXISTS (SELECT 1 FROM FilteredQuestions)	
 	`
 
 	stmt, err := db.Prepare(getQuestionsStatement)
@@ -62,7 +78,7 @@ func GetUserQuestions(respondentID int) ([]UserQuestions, error) {
 
 	var questionAnswers []UserQuestions
 
-	rows, err := stmt.Query(respondentID)
+	rows, err := stmt.Query()
 	if err != nil {
 		return questionAnswers, err
 	}
