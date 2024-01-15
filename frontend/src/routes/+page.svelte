@@ -5,8 +5,9 @@
     <div class="flex flex-col md:flex-row h-full w-full items-center">
         <div class="flex flex-col w-11/12 md:w-3/5 gap-2 md:gap-4">
             <h1 class="text-5xl md:text-7xl text-primary font-bold pb-2">Helseveileder</h1>
-            <p>Vi utfører en undersøkelse om kunstig intelligens (AI) i medisin. Vi ønsker å forstå hvordan AI kan fungere som en copilot for leger og pasienter.</p>
-            <p>Undersøkelsen er helt anonym. Spørsmålene er helserettet innenfor et spekter av kategorier. Det er mulig å gå videre til neste spørsmål, hvis man er ukomfortabel med spørsmålet eller ikke ønsker å vurdere et spørsmål. Hvis du ønsker å avbryte spørreundersøkelsen uten å sende inn svar, lukker du vinduet.</p>
+            <p>Hvordan responderer ChatGPT på kliniske spørsmål sammenlignet med leger?</p>
+            <p>Vi skriver hovedoppgave om kunstig intelligens (AI) i medisin, og ønsker å forstå hvordan AI kan fungere som en co-pilot for leger og pasienter</p>
+            <p>Undersøkelsen er helt anonym. Spørsmålene er helserettet, innenfor et spekter av kategorier. Det er mulig å gå videre til neste spørsmål hvis det er et spørsmål du ikke ønsker å besvare.</p>
             <ul>
                 <p class="mb-4">I denne undersøkelsen vil vi at du skal vurdere empati, kunnskap og hjelpsomhet i ulike svar på medisinske spørsmål.</p>
                 <li><strong>Empati:</strong> Evnen til å oppdage og erkjenne andres følelser og tanker.</li>

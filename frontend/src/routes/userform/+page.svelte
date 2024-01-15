@@ -40,7 +40,7 @@
             <p>Vi vil igjen minne om at denne undersøkelsen er helt anonym. Se <a href="/personvern"class="text-primary font-bold">Personvern</a> for mer informasjon.</p>  
         </div>
         <div class="flex flex-col gap-6 justify-start items-center md:w-2/4">
-            <UserFormInput formData={age} on:update={(e) => age = e.detail} inputType="radio" label="Alder" options={["18-20", "20-30", "30-40", "40-50", "50-60", "60-70"]}/>
+            <UserFormInput formData={age} on:update={(e) => age = e.detail} inputType="radio" label="Alder" options={["18-20", "21-30", "31-40", "41-50", "51-60", "61-70", "71+"]}/>
 
             <div class="flex flex-col md:flex-row justify-between md:justify-start items-start gap-3 md:gap-0 md:h-1/4 w-full">
                 <div class="w-full md:w-3/12">
@@ -65,7 +65,7 @@
                     <select class="md:ml-6 pl-2 pr-16 py-2 rounded-xl text-primary border-primary border-2 text-start hover:cursor-pointer" 
                             on:change={(e) => education = e.target.value}
                     >
-                        {#each ["VGS", "Bachelor", "Master", "PhD"] as data}
+                        {#each ["VGS", "Bachelor", "Master", "Profesjonsstudium", "PhD"] as data}
                             <option value={data}>{data}</option>
                         {/each}
                     </select>
