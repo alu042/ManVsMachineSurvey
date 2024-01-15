@@ -41,8 +41,8 @@
         </div>
         <div class="flex flex-col gap-6 justify-start items-center md:w-2/4">
             <UserFormInput formData={age} on:update={(e) => age = e.detail} inputType="radio" label="Alder" options={["18-20", "20-30", "30-40", "40-50", "50-60"]}/>
-            <UserFormInput formData={county} on:update={(e) => county = e.detail} inputType="select" label="Fylke" options={["Vestland", "Rogaland", "Møre og Romsdal", "Oslo", "Viken", "Nordland", "Trøndelag", "Innlandet", "Troms og Finnmark", "Vestfold og Telemark", "Agder"]}/>
-            <UserFormInput formData={education} on:update={(e) => education = e.detail} inputType="select" label="Utdanningsgrad" options={["VGS", "Bachelor", "Master", "PhD"]}/>
+            <UserFormInput formData={county} on:update={(e) => county = e.detail} inputType="select" label="Hvilket fylke befinner du deg i?" options={["Vestland", "Rogaland", "Møre og Romsdal", "Oslo", "Viken", "Nordland", "Trøndelag", "Innlandet", "Troms og Finnmark", "Vestfold og Telemark", "Agder"]}/>
+            <UserFormInput formData={education} on:update={(e) => education = e.detail} inputType="select" label="Høyeste fullførte utdanningsgrad" options={["VGS", "Bachelor", "Master", "PhD"]}/>
             <UserFormInput formData={healthcare_personnel} on:update={(e) => healthcare_personnel = e.detail} inputType="radio" label="Jobber/studerer du innen helse?" options={["Ja", "Nei"]}/>
             <UserFormInput formData={is_licensed} on:update={(e) => is_licensed = e.detail} inputType="radio" label="Er du lege eller medisinstudent med lisens?" options={["Ja", "Nei"]}/>
             <UserFormInput formData={gender} on:update={(e) => gender = e.detail} inputType="radio" label="Kjønn" options={["Mann", "Kvinne", "Annet"]}/>
