@@ -8,7 +8,7 @@
 
 
     let age: string = "18-20"
-    let education: string = "PhD"
+    let education: string = "VGS"
     let healthcare_personnel: string = "Ja"
     let is_licensed: string = "Nei"
     let gender: string = "Mann"
