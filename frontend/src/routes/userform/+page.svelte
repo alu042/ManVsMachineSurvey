@@ -1,9 +1,9 @@
 <script lang="ts">
     import UserFormInput from "../../components/userform/UserFormInput.svelte";
     import ArrowBack from "../../components/svg/ArrowBack.svelte";
-	import ButtonComponent from "../../components/userform/inputs/ButtonComponent.svelte";
-	import { postUserformData } from "../../api/postUserformData";
-	import { getUserQuestions } from "../../api/getUserQuestions";
+    import ButtonComponent from "../../components/userform/inputs/ButtonComponent.svelte";
+    import { postUserformData } from "../../api/postUserformData";
+    import { getUserQuestions } from "../../api/getUserQuestions";
     import { goto } from "$app/navigation";
 
 
@@ -29,7 +29,7 @@
     }
 </script>
 
-<div class="flex flex-col md:justify-center gap-6 md:gap-10 h-full md:h-screen">
+<div class="flex flex-col md:justify-center gap-6 md:gap-0 h-full md:h-screen">
     <a class="md:ml-32 mt-5" href="/">
         <ArrowBack width="2rem" />
     </a>
@@ -41,8 +41,38 @@
         </div>
         <div class="flex flex-col gap-6 justify-start items-center md:w-2/4">
             <UserFormInput formData={age} on:update={(e) => age = e.detail} inputType="radio" label="Alder" options={["18-20", "20-30", "30-40", "40-50", "50-60", "60-70"]}/>
-            <UserFormInput formData={county} on:update={(e) => county = e.detail} inputType="select" label="Hvilket fylke befinner du deg i?" options={["Vestland", "Rogaland", "Møre og Romsdal", "Oslo", "Viken", "Nordland", "Trøndelag", "Innlandet", "Troms og Finnmark", "Vestfold og Telemark", "Agder"]}/>
-            <UserFormInput formData={education} on:update={(e) => education = e.detail} inputType="select" label="Høyeste fullførte utdanningsgrad" options={["VGS", "Bachelor", "Master", "PhD"]}/>
+
+            <div class="flex flex-col md:flex-row justify-between md:justify-start items-start gap-3 md:gap-0 md:h-1/4 w-full">
+                <div class="w-full md:w-3/12">
+                    <p class="text-primary font-bold w-auto">Hvilket fylke befinner du deg i?</p>
+                </div>
+                <div class="w-full md:w-5/6">
+                    <select class="md:ml-6 pl-2 pr-16 py-2 rounded-xl text-primary border-primary border-2 text-start hover:cursor-pointer" 
+                            on:change={(e) => county = e.target.value}
+                    >
+                        {#each ["Vestland", "Rogaland", "Møre og Romsdal", "Oslo", "Viken", "Nordland", "Trøndelag", "Innlandet", "Troms og Finnmark", "Vestfold og Telemark", "Agder"] as data}
+                            <option value={data}>{data}</option>
+                        {/each}
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between md:justify-start items-start gap-3 md:gap-0 md:h-1/4 w-full">
+                <div class="w-full md:w-3/12">
+                    <p class="text-primary font-bold w-auto">Høyeste fullførte utdanningsgrad:</p>
+                </div>
+                <div class="w-full md:w-5/6">
+                    <select class="md:ml-6 pl-2 pr-16 py-2 rounded-xl text-primary border-primary border-2 text-start hover:cursor-pointer" 
+                            on:change={(e) => education = e.target.value}
+                    >
+                        {#each ["VGS", "Bachelor", "Master", "PhD"] as data}
+                            <option value={data}>{data}</option>
+                        {/each}
+                    </select>
+                </div>
+            </div>
+                
+
             <UserFormInput formData={healthcare_personnel} on:update={(e) => healthcare_personnel = e.detail} inputType="radio" label="Jobber/studerer du innen helse?" options={["Ja", "Nei"]}/>
             <UserFormInput formData={is_licensed} on:update={(e) => is_licensed = e.detail} inputType="radio" label="Er du lege eller medisinstudent med lisens?" options={["Ja", "Nei"]}/>
             <UserFormInput formData={gender} on:update={(e) => gender = e.detail} inputType="radio" label="Kjønn" options={["Mann", "Kvinne", "Annet"]}/>
@@ -63,8 +93,5 @@
         list-style-type: disc;
         margin-left: 2rem;
         font-size: large;
-    }
-    p {
-        font-size: larger;
     }
 </style>
