@@ -45,29 +45,30 @@ func GetUserQuestions(respondentID int) ([]UserQuestions, error) {
 	}
 	
 	getQuestionsStatement := `
-		WITH FilteredQuestions AS (
-			SELECT s.SpørsmålID, s.tekst
-			FROM Spørsmål s
-			LEFT JOIN (
-				SELECT ss.spørsmålID
-				FROM Spørsmålsvar ss
-				LEFT JOIN SvarVurdering sv ON ss.svarID = sv.svarID
-				GROUP BY ss.spørsmålID
-				HAVING COUNT(sv.vurderingID) < 3
-			) AS subquery ON s.spørsmålID = subquery.spørsmålID
-			WHERE subquery.spørsmålID IS NOT NULL
-			LIMIT 5
-		)
-		
-		SELECT * FROM FilteredQuestions
-		UNION ALL
-		SELECT * FROM (
-			SELECT s.SpørsmålID, s.tekst
-			FROM Spørsmål s
-			ORDER BY RANDOM()
-			LIMIT 5
-		) RandomQuestions
-		WHERE NOT EXISTS (SELECT 1 FROM FilteredQuestions)	
+	WITH FilteredQuestions AS (
+		SELECT s.SpørsmålID, s.tekst
+		FROM Spørsmål s
+		LEFT JOIN (
+			SELECT ss.spørsmålID
+			FROM Spørsmålsvar ss
+			LEFT JOIN SvarVurdering sv ON ss.svarID = sv.svarID
+			GROUP BY ss.spørsmålID
+			HAVING COUNT(sv.vurderingID) < 3
+		) AS subquery ON s.spørsmålID = subquery.spørsmålID
+		WHERE subquery.spørsmålID IS NOT NULL
+		LIMIT 5
+	),
+	RandomQuestions AS (
+		SELECT s.SpørsmålID, s.tekst
+		FROM Spørsmål s
+		WHERE s.SpørsmålID NOT IN (SELECT SpørsmålID FROM FilteredQuestions)
+		ORDER BY RANDOM()
+		LIMIT 5
+	)
+	SELECT * FROM FilteredQuestions
+	UNION ALL
+	SELECT * FROM RandomQuestions
+	LIMIT 5	
 	`
 
 	stmt, err := db.Prepare(getQuestionsStatement)
