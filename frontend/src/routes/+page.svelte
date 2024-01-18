@@ -7,9 +7,9 @@
             <h1 class="text-5xl md:text-7xl text-primary font-bold pb-2">Helseveileder</h1>
             <p>Hvordan responderer ChatGPT på kliniske spørsmål sammenlignet med leger?</p>
             <p>Vi skriver hovedoppgave om kunstig intelligens (AI) i medisin, og ønsker å forstå hvordan AI kan fungere som en co-pilot for leger og pasienter</p>
-            <p>Undersøkelsen er helt anonym. Spørsmålene er helserettet, innenfor et spekter av kategorier. Det er mulig å gå videre til neste spørsmål hvis det er et spørsmål du ikke ønsker å besvare.</p>
+            <p>Spørsmålene og legesvarene er hentet fra den anonyme nettsiden <a href="https://studenterspør.no" class="text-primary font-bold">Studenter Spør</a>, og er innenfor et spekter av medisinske kategorier. Det er mulig å gå videre til neste spørsmål hvis det er et spørsmål du ikke ønsker å besvare.</p>
             <ul>
-                <p class="mb-4">I denne undersøkelsen vil vi at du skal vurdere empati, kunnskap og hjelpsomhet i ulike svar på medisinske spørsmål.</p>
+                <p class="mb-4">I denne undersøkelsen vil vi at du skal vurdere empati, kunnskap og hjelpsomhet i ulike svar på kliniske spørsmål. Undersøkelsen er helt anonym. </p>
                 <li><strong>Empati:</strong> Evnen til å oppdage og erkjenne andres følelser og tanker.</li>
                 <li><strong>Kunnskap:</strong> Nøyaktighet og relevans av den medisinske informasjonen gitt.</li>
                 <li><strong>Hjelpsomhet:</strong> Evnen til å gi nyttig og praktisk råd eller støtte.</li>
