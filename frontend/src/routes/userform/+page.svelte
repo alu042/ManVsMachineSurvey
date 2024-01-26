@@ -7,13 +7,13 @@
     import { goto } from "$app/navigation";
 
 
-    let age: string = "18-20"
-    let education: string = "VGS"
-    let healthcare_personnel: string = "Ja"
-    let is_licensed: string = "Nei"
-    let gender: string = "Mann"
-    let has_answered_before: string = "Nei"
-    let county: string = "Vestland"
+    let age: string = ""
+    let education: string = ""
+    let healthcare_personnel: string = ""
+    let is_licensed: string = ""
+    let gender: string = ""
+    let has_answered_before: string = ""
+    let county: string = ""
 
     let firstUserQuestion: number = 0
 
@@ -50,7 +50,7 @@
                     <select class="md:ml-6 pl-2 pr-16 py-2 rounded-xl text-primary border-primary border-2 text-start hover:cursor-pointer" 
                             on:change={(e) => county = e.target.value}
                     >
-                        {#each ["Vestland", "Rogaland", "Møre og Romsdal", "Oslo", "Viken", "Nordland", "Trøndelag", "Innlandet", "Troms og Finnmark", "Vestfold og Telemark", "Agder"] as data}
+                        {#each ["", "Vestland", "Rogaland", "Møre og Romsdal", "Oslo", "Viken", "Nordland", "Trøndelag", "Innlandet", "Troms og Finnmark", "Vestfold og Telemark", "Agder"] as data}
                             <option value={data}>{data}</option>
                         {/each}
                     </select>
@@ -65,7 +65,7 @@
                     <select class="md:ml-6 pl-2 pr-16 py-2 rounded-xl text-primary border-primary border-2 text-start hover:cursor-pointer" 
                             on:change={(e) => education = e.target.value}
                     >
-                        {#each ["VGS", "Bachelor", "Master", "Profesjonsstudium", "PhD"] as data}
+                        {#each ["", "VGS", "Bachelor", "Master", "Profesjonsstudium", "PhD"] as data}
                             <option value={data}>{data}</option>
                         {/each}
                     </select>
