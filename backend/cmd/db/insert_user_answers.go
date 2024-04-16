@@ -2,11 +2,9 @@ package db
 
 import (
 	"database/sql"
-	"encoding/csv"
 	"encoding/json"
 	"fmt"
 	"log"
-	"os"
 	"strconv"
 
 	_ "github.com/lib/pq"
@@ -18,11 +16,6 @@ type FormAnswer struct {
 }
 
 type AllFormAnswers []FormAnswer
-
-type CSVRow struct {
-	RespondentID string
-	AllAnswers string
-}
 
 func InsertUserAnswers(respondentId int, allAnswers string) (error) {
 
@@ -44,29 +37,6 @@ func InsertUserAnswers(respondentId int, allAnswers string) (error) {
 		log.Fatalf("Error connecting to the database: %v\n", err)
 	}
 
-	// Write answers to backup-file
-	file, err := os.OpenFile("cmd/db/backups/answer_backup.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0777)
-    if err != nil {
-        fmt.Println(err)
-    }
-
-	var row = CSVRow{strconv.Itoa(respondentId), allAnswers}
-
-	rowSlice := []string{row.RespondentID, row.AllAnswers}
-
-	csvwriter := csv.NewWriter(file)
-
-	if err := csvwriter.Write(rowSlice); err != nil {
-		log.Fatalln("error writing record to file", err)
-	}
-
-	csvwriter.Flush()
-
-	// Check for errors from flushing
-	if err := csvwriter.Error(); err != nil {
-		log.Fatal(err)
-	}
- 
 	// Convert answer format
 	var convertedFormAnswers = convertAnswerFormat(allAnswers)
 
