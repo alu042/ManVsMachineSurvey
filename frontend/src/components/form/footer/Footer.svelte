@@ -53,33 +53,37 @@
 
 <div class="flex flex-col gap-8 justify-around items-center pb-6 md:mb-5">
     <div class="flex gap-8">
-        <button disabled={questionNum == 0} class={`flex items-center gap-2 text-primary font-semibold ${questionNum == 0 && "opacity-50"}`} on:click={() => gotoPrevPage(questionNum)}>
+        <button disabled={questionNum == 0} class={`flex items-center gap-2 text-primary font-semibold ${questionNum == 0 && "opacity-50"}`} on:click={() => gotoPrevPage(questionNum)} aria-label="Forrige spørsmål">
             <ArrowChevron width=16 direction="left"/>
             Forrige spørsmål
         </button>
         <button disabled={questionNum == 0 || questionNum % 4 != 0} on:click={handleFormSubmit}
-        class={`${(questionNum == 0 || questionNum % 4 != 0) || (questionNum % 4 == 0 && !answeredAll) ?  "hidden" : "bg-primary text-bg hover:bg-bg hover:text-primary"} font-bold uppercase border-primary border-2 rounded-full px-2 md:px-8 py-3`}>
+        class={`${(questionNum == 0 || questionNum % 4 != 0) || (questionNum % 4 == 0 && !answeredAll) ?  "hidden" : "bg-primary text-bg hover:bg-bg hover:text-primary"} font-bold uppercase border-primary border-2 rounded-full px-2 md:px-8 py-3`}
+        aria-label="Send inn svar">
                 Send inn svar
         </button>
-        <button disabled={(questionNum != 0 && questionNum % 4 == 0) || !answeredAll} class={`flex items-center gap-2 text-primary font-semibold ${(questionNum != 0 && questionNum % 4 == 0) || !answeredAll && "opacity-50"} ${questionNum != 0 && questionNum % 4 == 0 && "opacity-50"} ${questionNum % 4 == 0 && questionNum != 0 &&  answeredAll && "hidden"}`} on:click={() => gotoNextPage(questionNum)}>
+        <button disabled={(questionNum != 0 && questionNum % 4 == 0) || !answeredAll} class={`flex items-center gap-2 text-primary font-semibold ${(questionNum != 0 && questionNum % 4 == 0) || !answeredAll && "opacity-50"} ${questionNum != 0 && questionNum % 4 == 0 && "opacity-50"} ${questionNum % 4 == 0 && questionNum != 0 &&  answeredAll && "hidden"}`} on:click={() => gotoNextPage(questionNum)}
+            aria-label="Neste spørsmål">
             Neste spørsmål
             <ArrowChevron width=16 direction="right"/>
         </button>
     </div>  
     <div class="flex gap-8 items-center">
-        <button on:click={() => skipQuestion(questionNum)} class="border-2 border-primary text-primary rounded-3xl hover:bg-primary hover:text-bg px-3 py-2">
+        <button on:click={() => skipQuestion(questionNum)} class="border-2 border-primary text-primary rounded-3xl hover:bg-primary hover:text-bg px-3 py-2"
+            aria-label="Ønsker ikke å vurdere dette spørsmålet">
             Ønsker ikke vurdere dette spørsmålet
         </button>
         {#if wantsToSubmit}
             <div class="flex flex-col gap-2">
                 <p class="text-primary font-semibold text-center">Er du sikker på at du vil avslutte undersøkelsen?</p>
                 <div class="flex flex-grow justify-center gap-4">
-                    <button on:click={handleFormSubmit} class={`border-2 border-primary bg-primary text-bg rounded-full hover:bg-bg hover:text-primary px-7 py-2`}>Ja</button>
-                    <button on:click={() => wantsToSubmit = false} class={`border-2 border-primary bg-primary text-bg rounded-full hover:bg-bg hover:text-primary px-7 py-2`}>Nei</button>
+                    <button on:click={handleFormSubmit} class={`border-2 border-primary bg-primary text-bg rounded-full hover:bg-bg hover:text-primary px-7 py-2`} aria-label="Ja">Ja</button>
+                    <button on:click={() => wantsToSubmit = false} class={`border-2 border-primary bg-primary text-bg rounded-full hover:bg-bg hover:text-primary px-7 py-2`} aria-label="Nei">Nei</button>
                 </div>
             </div>
         {:else}
-        <button on:click={() => wantsToSubmit = true} class={`border-2 border-primary bg-primary text-bg rounded-3xl px-3 py-2 ${questionNum % 4 == 0 && questionNum != 0 && answeredAll && "hidden"}`}>
+        <button on:click={() => wantsToSubmit = true} class={`border-2 border-primary bg-primary text-bg rounded-3xl px-3 py-2 ${questionNum % 4 == 0 && questionNum != 0 && answeredAll && "hidden"}`}
+            aria-label="Avslutt undersøkelsen og send inn svar">
             Avslutt undersøkelsen og send inn svar
         </button>
         {/if}

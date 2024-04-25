@@ -30,7 +30,7 @@
 </script>
 
 <div class="flex flex-col md:justify-center gap-6 md:gap-0 h-full md:h-screen">
-    <a class="md:ml-32 mt-5" href="/">
+    <a class="md:ml-32 mt-5" href="/" aria-label="Gå tilbake til forsiden">
         <ArrowBack width="2rem" />
     </a>
     <div class="flex flex-col md:flex-row h-full md:h-4/5 gap-6">
