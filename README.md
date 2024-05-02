@@ -26,7 +26,11 @@ As a part of this project we needed to scrape questions and answers from [Studen
 
 ## 🔋 Features
 
-👉 **XYxy:** Aabbcc.
+👉 **Accessibility:** Ensure access & usability for all users.
+
+👉 **Bug Reporting:** Simplify reporting for prompt issue resolution.
+
+👉 **Evaluation of Three Custom Criteria:** Enable customized item evaluation for informed decision-making.
 
 ## 🤸 Quick Start
 
@@ -36,9 +40,10 @@ Follow these steps to set up the project locally on your machine.
 
 Make sure you have the following installed on your machine:
 
-- ...
+- Docker
+- Go
 
-**Cloning the Repository**
+**Cloning the repository**
 
 ```bash
 git clone git@github.com:haraldnilsen/helseveileder.git 
@@ -48,13 +53,23 @@ cd helseveileder
 **Installation**
 
 ```bash
-
+cd frontend && npm i
 ```
 
-**Running the Project**
+**Running the project locally**
 
 ```bash
+cd backend
+docker compose -f docker-compose.dev.yml up -d
+```
 
+**Deploying the project**
+
+Change .env info in both `frontend/` & `/backend`, then:
+
+```bash
+cd backend
+docker compose -f docker-compose.deploy.yml up -d
 ```
 
 ## 🔗 Links
@@ -62,7 +77,6 @@ cd helseveileder
 See also links below for related info about project:
 
 - [Helseveileder-webscraper](https://github.com/SindreKjelsrud/helseveileder_webscraper)
-- [Helseveileder-LLM](https://github.com/alu042/helseveileder-llm)
 
 ## 📄 Licence
 
