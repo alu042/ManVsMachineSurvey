@@ -74,6 +74,10 @@ cd backend
 docker compose -f docker-compose.deploy.yml up -d
 ```
 
+## 🎥 Demo
+
+https://github.com/haraldnilsen/helseveileder/assets/93219711/0b9590a5-736a-41d5-9888-51a1232dc591
+
 ## 🔗 Links
 
 See also links below for related info about project:
