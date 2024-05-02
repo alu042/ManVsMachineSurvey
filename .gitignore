@@ -6,11 +6,10 @@ frontend/build
 frontend/.svelte-kit
 frontend/package
 frontend/.env
-frontend/.env.*
-frontend/!.env.example
 frontend/vite.config.js.timestamp-*
 frontend/vite.config.ts.timestamp-*
 frontend/package-lock.json
 
 # Backend
 backend/certs
+backend/.env
