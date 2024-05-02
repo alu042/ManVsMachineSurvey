@@ -1,3 +1,5 @@
+const URL = import.meta.env.VITE_URL;
+
 interface Question {
 	QuestionID: number;
 	QuestionText: string;
@@ -22,7 +24,7 @@ interface QAData {
 export const getUserQuestions = async (
 	respondentID: number
 ): Promise<QAData> => {
-	let url = `https://helseundersokelsen.online/userquestions?respondentID=${respondentID}`;
+	let url = `${URL}/userquestions?respondentID=${respondentID}`;
 
 	const response = fetch(url, {
 		method: "GET",

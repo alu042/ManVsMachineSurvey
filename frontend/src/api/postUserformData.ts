@@ -1,3 +1,5 @@
+const URL = import.meta.env.VITE_URL;
+
 interface postUserformDataReponse {
 	respondentID: number;
 }
@@ -12,7 +14,7 @@ export const postUserformData = async (
 	county: string,
 	submit_date: string
 ): Promise<postUserformDataReponse> => {
-	let url = "https://helseundersokelsen.online/submituserform";
+	let url = `${URL}/submituserform`;
 	let personnel = healthcare_personnel == "Ja" ? true : false;
 	let licensed = is_licensed == "Ja" ? true : false;
 	let answered_before = has_answered_before == "Ja" ? true : false;

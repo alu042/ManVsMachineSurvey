@@ -1,5 +1,7 @@
+const URL = import.meta.env.VITE_URL;
+
 export const postEvaluationData = async (evaluationText: string) => {
-	let url = "https://helseundersokelsen.online/submiteval";
+	let url = `${URL}/submiteval`;
 
 	const response = fetch(url, {
 		method: "POST",

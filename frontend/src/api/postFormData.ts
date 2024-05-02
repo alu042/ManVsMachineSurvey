@@ -1,8 +1,10 @@
+const URL = import.meta.env.VITE_URL;
+
 export const postFormData = async (
 	respondentID: number,
 	allFormAnswers: string
 ) => {
-	let url = "https://helseundersokelsen.online/submitanswers";
+	let url = `${URL}/submitanswers`;
 
 	const response = fetch(url, {
 		method: "POST",

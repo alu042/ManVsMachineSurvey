@@ -1,5 +1,7 @@
+const URL = import.meta.env.VITE_URL;
+
 export const postBugData = async (bugText: string) => {
-	let url = "https://helseundersokelsen.online/submitbug";
+	let url = `${URL}/submitbug`;
 
 	const response = fetch(url, {
 		method: "POST",
