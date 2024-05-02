@@ -5,18 +5,27 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strings"
+	"strconv"
 
+	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
-const (
-	host     = "postgres"
-	port     = 5432 // This is the default port for PostgreSQL
-	user     = "admin"
-	password = "helse123"
-	dbname   = "helseveileder"
+func init() {
+	if err := godotenv.Load(".env"); err != nil {
+		log.Fatalf("Error loading .env file: %v", err)
+	}
+}
+
+var (
+	host     = os.Getenv("DB_HOST")
+	portStr  = os.Getenv("DB_PORT")
+	user     = os.Getenv("DB_USER")
+	password = os.Getenv("DB_PASSWORD")
+	dbname   = os.Getenv("DB_NAME")
 )
+
+var port, _ = strconv.Atoi(portStr)
 
 func SetupDb() {
 	// Connection string
@@ -35,74 +44,5 @@ func SetupDb() {
 	err = db.Ping()
 	if err != nil {
 		log.Fatalf("Error connecting to the database: %v\n", err)
-	}
-
-	// SQL statements to create tables
-	createTableStatements := []string{
-		`CREATE TABLE IF NOT EXISTS Spørsmål (
-			spørsmålID SERIAL PRIMARY KEY,
-			tekst TEXT NOT NULL
-		);`,
-		`CREATE TABLE IF NOT EXISTS SpørsmålSvar (
-			svarID SERIAL PRIMARY KEY,
-			spørsmålID INT REFERENCES Spørsmål(spørsmålID),
-			chatgpt BOOL NOT NULL,
-			svartekst TEXT NOT NULL
-		);`,
-		`CREATE TABLE IF NOT EXISTS Respondent (
-			respondentID SERIAL PRIMARY KEY,
-			alder TEXT NOT NULL,
-			utdanningsgrad TEXT NOT NULL,
-			helsepersonell BOOL NOT NULL,
-			harlisens BOOL NOT NULL,
-			kjønn TEXT NOT NULL,
-			svartfør BOOL NOT NULL,
-			fylke TEXT NOT NULL,
-			dato TEXT NOT NULL
-		);`,
-		`CREATE TABLE IF NOT EXISTS SvarVurdering (
-			vurderingID SERIAL PRIMARY KEY,
-			respondentID INT REFERENCES Respondent(respondentID),
-			svarID INT REFERENCES SpørsmålSvar(svarID),
-			kunnskap INT,
-			empati INT,
-			hjelpsomhet INT
-		);`,
-		`CREATE TABLE IF NOT EXISTS Evaluering (
-			evalueringtekst TEXT
-		);`,
-		`CREATE TABLE IF NOT EXISTS FeilRapport (
-			feiltekst TEXT
-		);`,
-	}
-
-	// Execute SQL statements
-	for _, stmt := range createTableStatements {
-		_, err := db.Exec(stmt)
-		if err != nil {
-			log.Fatalf("Error creating table: %v\n", err)
-		}
-	}
-
-	insertDb(db, "cmd/db/queries/insert_questions_sql_query.sql")
-	insertDb(db, "cmd/db/queries/insert_answers_sql_query.sql")
-
-	fmt.Println("Tables created successfully.")
-}
-
-func insertDb(db *sql.DB, filepath string) {
-	file, err := os.ReadFile(filepath)
-	if err != nil {
-		// handle error
-		log.Fatalf("Error reading file: %v\n", err)
-	}
-
-	requests := strings.Split(string(file), ";")
-	for _, request := range requests {
-		_, err := db.Exec(request)
-		// do whatever you need with result and error
-		if err != nil {
-			log.Fatalf("Error creating table: %v\n", err)
-		}
 	}
 }
