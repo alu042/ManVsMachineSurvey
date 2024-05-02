@@ -7,19 +7,15 @@ services:
       - 5432:5432
     volumes:
       - ~/apps/postgres:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_PASSWORD=helse123
-      - POSTGRES_USER=admin
-      - POSTGRES_DB=helseveileder
+    env_file:
+      - .env
   ginapi:
     build:
       context: .
       dockerfile: Dockerfile
     image: helseveileder
-    volumes:
-      - ${HOME}/helseveileder/backend/cmd/db/backups/answer_backup.csv
-      - ${HOME}/helseveileder/backend/cmd/db/backups/bugreport_backup.csv
-      - ${HOME}/helseveileder/backend/cmd/db/backups/evaluation_backup.csv
+    ports:
+      - 8080:8080
     depends_on:
       - postgres
   nginx:
