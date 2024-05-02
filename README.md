@@ -28,9 +28,9 @@ As a part of this project we needed to scrape questions and answers from [Studen
 
 👉 **Accessibility:** Ensure access & usability for all users.
 
-👉 **Bug Reporting:** Simplify reporting for prompt issue resolution.
+👉 **Bug Reporting:** Respondents can report a bug if they found one.
 
-👉 **Evaluation of Three Custom Criteria:** Enable customized item evaluation for informed decision-making.
+👉 **Evaluation of survey:** Respondents can evaluate survey if wanted.
 
 ## 🤸 Quick Start
 
@@ -59,7 +59,9 @@ cd frontend && npm i
 **Running the project locally**
 
 ```bash
-cd backend
+cd frontend
+npm run dev
+cd ../backend
 docker compose -f docker-compose.dev.yml up -d
 ```
 
