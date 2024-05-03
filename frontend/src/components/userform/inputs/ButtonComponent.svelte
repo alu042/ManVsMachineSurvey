@@ -1,7 +1,7 @@
 <script lang="ts">
     export let text: string;
     export let filled = false;
-    export let onclick: any;
+    export let onclick: any = null;
 
     let style:string;
 
