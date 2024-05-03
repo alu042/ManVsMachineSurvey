@@ -7,8 +7,9 @@
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
-5. 🔗 [Links](#links)
-6. 📄 [License](#license)
+5. 🎥 [Demo](#demo)
+6. 🔗 [Links](#links)
+7. 📄 [License](#license)
 
 ## 📝 Info
 
@@ -34,45 +35,26 @@ As a part of this project we needed to scrape questions and answers from [Studen
 
 ## 🤸 Quick Start
 
-Follow these steps to set up the project locally on your machine.
+### Server Setup
 
-**Prerequisites**
+The server relies on `Docker Compose` for environment management. Ensure that it's installed on your system. 
 
-Make sure you have the following installed on your machine:
+- **Getting Started:**  
+    i. Go into the server directory: `cd backend`  
+    ii. Copy `.env.example` to `.env`  
+    iii. Build Docker environment: `docker compose -f docker-compose.dev.yml build`  
+    iv. Launch the Docker environment; `docker compose -f docker-compose.dev.yml up -d`  
+- **API Access:** The API is now accessible at `http://localhost:8080`.
+### Client Setup 
 
-- Docker
-- Go
+The client uses `npm` for package management. Ensure that it's installed before proceeding.
 
-**Cloning the repository**
-
-```bash
-git clone git@github.com:haraldnilsen/helseveileder.git 
-cd helseveileder
-```
-
-**Installation**
-
-```bash
-cd frontend && npm i
-```
-
-**Running the project locally**
-
-```bash
-cd frontend
-npm run dev
-cd ../backend
-docker compose -f docker-compose.dev.yml up -d
-```
-
-**Deploying the project**
-
-Change .env info in both `frontend/` & `/backend`, then:
-
-```bash
-cd backend
-docker compose -f docker-compose.deploy.yml up -d
-```
+- **Getting Started:**  
+    i. Navigate to the client directory: `cd frontend`  
+    ii. Copy `.env.example` to `.env`  
+    iii. Install dependencies: `npm i`  
+    iv. Start dev-server: `npm dev run`  
+- **Website Access:** The site is now available at `http://localhost:5173`.
 
 ## 🎥 Demo
 
