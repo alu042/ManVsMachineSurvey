@@ -8,6 +8,7 @@ import (
 	"helseveileder/cmd/db"
 
 	"github.com/gin-gonic/gin"
+    "github.com/gin-contrib/cors"
 )
 
 type UserformData struct {
@@ -37,6 +38,12 @@ type Evaluation struct {
 func main() {
     router := gin.Default()
     // router.Use(cors.Default())
+
+    config := cors.DefaultConfig()
+    config.AllowOrigins = []string{"http://localhost:5173"} // Add your frontend URL here
+    config.AllowMethods = []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"}
+    config.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type", "Authorization"}
+    router.Use(cors.New(config))
 
     router.GET("/hello", func(c *gin.Context) {
         c.JSON(http.StatusOK, gin.H{"hello":"world"})
@@ -149,6 +156,6 @@ func main() {
     })
 
     // Run the server on port 8080
-    // db.SetupDb()
+    db.SetupDb()
     router.Run(":8080")
 }
