@@ -1,0 +1,22 @@
+{
+"surveyTitle": "Menneske og maskin",
+"introduction": "Sammenligning av menneskers og roboters svar på helserelaterte spørsmål.",
+"surveyDescription": "Vi skriver hovedoppgave om kunstig intelligens (AI) i medisin, og ønsker å forstå hvordan AI kan fungere som en kopilot for leger og pasienter.",
+"surveyContext": "Spørsmålene og legesvarene er hentet fra XX, og er XX. Det er mulig å gå videre til neste spørsmål hvis det er et spørsmål du ikke ønsker å besvare.",
+"surveyInstructions": "I denne undersøkelsen vil vi at du skal vurdere følgende kriterier i ulike svar på kliniske spørsmål. Undersøkelsen er helt anonym.",
+"evaluationCriteria": [
+    {
+    "name": "Kunnskap",
+    "description": "Nøyaktighet og relevans av den medisinske informasjonen gitt."
+    },
+    {
+    "name": "Empati",
+    "description": "Evnen til å oppdage og erkjenne andres følelser og tanker."
+    },
+    {
+    "name": "Hjelpsomhet",
+    "description": "Evnen til å gi nyttig og praktisk råd eller støtte."
+    }
+],
+"evaluationOptions": ["Very Poor", "Poor", "Neutral", "Good", "Very Good", "Not Applicable"]
+}
